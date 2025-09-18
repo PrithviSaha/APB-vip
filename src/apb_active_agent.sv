@@ -1,7 +1,7 @@
 class apb_active_agent extends uvm_agent;
   apb_driver drv;
   apb_sequencer seqr;
-  apb_monitor mon;
+  apb_input_monitor mon_in;
   
   `uvm_component_utils(apb_active_agent)
     
@@ -13,11 +13,11 @@ class apb_active_agent extends uvm_agent;
     super.build_phase(phase);
     
     if(get_is_active() == UVM_ACTIVE) begin
-      drv = driver::type_id::create("drv", this);
-      seqr = sequencer::type_id::create("seqr", this);
+      drv = apb_driver::type_id::create("drv", this);
+      seqr = apb_sequencer::type_id::create("seqr", this);
     end
     
-    mon = monitor::type_id::create("mon", this);
+    mon_in = apb_input_monitor::type_id::create("mon_in", this);
   endfunction
   
   function void connect_phase(uvm_phase phase);
