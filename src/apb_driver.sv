@@ -7,7 +7,7 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
   
   uvm_analysis_port #(apb_sequence_item) item_collected_port;	//port for coverage
     
-  function new (string name, uvm_component parent);
+  function new (string name = "apb_driver", uvm_component parent = null);
     super.new(name, parent);
     item_collected_port = new("item_collected_port", this);
   endfunction
