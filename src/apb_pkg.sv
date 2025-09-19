@@ -12,5 +12,5 @@ package alp_pkg;
  `include "apb_coverage.sv"
   `include "apb_environment.sv"
   `include "apb_test.sv"
-  `include "apb_defines.sv"
+  `include "defines.svh"
 endpackage

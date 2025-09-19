@@ -1,3 +1,4 @@
+`include "defines.svh"
 //TLM DECL Ports
 `uvm_analysis_imp_decl(_apb_input_mon_scb)
 `uvm_analysis_imp_decl(_apb_output_mon_scb)
