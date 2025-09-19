@@ -144,10 +144,10 @@ class apb_scoreboard extends uvm_scoreboard;
     
 			if( PSLVx )
 				//SLAVE0 Operation
-				slave1_operation(packet_3);
+				slave1_operation(packet_3,PADDR);
 			else
 				//SLAVE1 Opertion
-				slave0_operation(packet_3);
+				slave0_operation(packet_3,PADDR);
 		end
 		$display(" Reference output : @ %0t \n  APB_READ_DATA_OUT = %d | PSLVERR = %b ",
 			         $time, ref_apb_read_data_out , ref_PSLVERR );
@@ -159,16 +159,26 @@ class apb_scoreboard extends uvm_scoreboard;
 	//         performs the SLAVE0 operation                //
 	//------------------------------------------------------//
 
-	task slave0_operation(input apb_sequence_item packet_3);
-   	// slave0 for read and write
+	task slave0_operation(input apb_sequence_item packet_3 , input logic PADDR );
+		if( packet_3.READ_WRITE ) begin
+			slave1[PADDR] = packet_3.apb_write_data;
+		end
+		else begin
+			ref_apb_read_data_out = slave1[PADDR];
+		end
 	endtask
 
 	//------------------------------------------------------//
 	//           performs the SLAVE1 operation              //
 	//------------------------------------------------------//
 
-	task slave1_operation(input apb_sequence_item packet_3);
-		// slave1 for read and write
+	task slave1_operation(input apb_sequence_item packet_3 , input logic PADDR);
+		if( packet_3.READ_WRITE ) begin
+			slave2[PADDR] = packet_3.apb_write_data;
+		end
+		else begin
+			ref_apb_read_data_out = slave2[PADDR];
+		end
 	endtask
 
 	//------------------------------------------------------//
