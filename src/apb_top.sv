@@ -23,9 +23,9 @@ module top;
 
 	// connecting interface with design
 
-	APB_DESIGN dut(
+	APB_Protocol dut(
 		.PCLK(vif.PCLK),
-		.PRESERTn(vif.PRESETn),
+		.PRESETn(vif.PRESETn),
 		.transfer(vif.transfer),
 		.apb_write_paddr(vif.apb_write_paddr),
 		.apb_read_paddr(vif.apb_read_paddr),
@@ -39,7 +39,7 @@ module top;
 	/*
 	bind vif apb_assertion ASSERT(
 	.PCLK(vif.PCLK),
-	.PRESERTn(vif.PRESETn),
+	.PRESETn(vif.PRESETn),
 	.transfer(vif.transfer),
 	.apb_write_paddr(vif.apb_write_paddr),
 	.apb_read_paddr(vif.apb_read_paddr),

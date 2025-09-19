@@ -5,7 +5,7 @@ class apb_active_agent extends uvm_agent;
 
 	`uvm_component_utils(apb_active_agent)
 
-	function new(string name = "apb_active_gent", uvm_component parent = null);
+	function new(string name = "apb_active_agent", uvm_component parent = null);
 		super.new(name, parent);
 	endfunction
 

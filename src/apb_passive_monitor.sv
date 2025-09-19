@@ -3,15 +3,15 @@
 class apb_output_monitor extends uvm_monitor;
   `uvm_component_utils(apb_output_monitor)
 
-  virtual apb_if.MON vif;
+  virtual apb_if vif;
   apb_sequence_item seq_item;
   
-  uvm_analysis_port#(apb_sequence_item) item_collected_port;   //port for coverage
+  uvm_analysis_port#(apb_sequence_item) item_collected_out_port;   //port for coverage
 
 //new    
   function new (string name = " apb_output_monitor", uvm_component parent);
     super.new(name, parent);
-    item_collected_port = new("item_collected_port", this);
+    item_collected_out_port = new("item_collected_out_port", this);
   endfunction
 
 //build phase
@@ -20,10 +20,8 @@ class apb_output_monitor extends uvm_monitor;
     seq_item = apb_sequence_item::type_id::create("seq_item");
     if(!uvm_config_db#(virtual apb_if)::get(this, "", "vif", vif))
       `uvm_fatal("NO_VIF",{"virtual interface must be set for: ",get_full_name(),".vif"});
-
   endfunction
   
-
   task monitor();
    /* repeat(4)
     @(posedge vif.PCLK);

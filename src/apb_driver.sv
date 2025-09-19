@@ -2,7 +2,7 @@
 class apb_driver extends uvm_driver #(apb_sequence_item);
   `uvm_component_utils(apb_driver)
 
-  virtual apb_if.DRV vif;
+  virtual apb_if vif;
   
   uvm_analysis_port #(apb_sequence_item) item_collected_port;   //port for coverage
     
@@ -19,23 +19,20 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
 
   endfunction
   
-  task send_to_interface();
-    vif.drv_cb.
-  endtask
+ // task send_to_interface();
+ //   vif.drv_cb.
+ // endtask
 
   task drive();
     
   endtask
 
-  virtual task run_phase(uvm_phase phase);
-    repeat(3) @(posedge vif.PCLK);
+	virtual task run_phase(uvm_phase phase);
     forever begin
       seq_item_port.get_next_item(req);
       drive();
       seq_item_port.item_done();
     end
   endtask   
-
-
 
 endclass

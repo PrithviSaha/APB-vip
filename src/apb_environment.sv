@@ -22,10 +22,11 @@ class apb_environment extends uvm_env;
 	endfunction
 
   function void connect_phase(uvm_phase phase);  
-    apb_agent_1.mon_in.item_collected_port.connect(apb_scoreboard_1.apb_input_scb_port);
-    apb_agent_2.mon_out.item_collected_port.connect(apb_scoreboard_1.apb_output_scb_port);
-    apb_agent_1.mon_in.item_collected_port.connect(apb_coverage_1.aport_ip_mon);
-    apb_agent_2.mon_out.item_collected_port.connect(apb_coverage_1.aport_out_mon);
+	//	super.connect_phase(phase);
+		apb_agent_1.mon_in.item_collected_in_port.connect(apb_scoreboard_1.apb_input_scb_port);
+    apb_agent_2.mon_out.item_collected_out_port.connect(apb_scoreboard_1.apb_output_scb_port);
+    apb_agent_1.mon_in.item_collected_in_port.connect(apb_coverage_1.aport_ip_mon);
+    apb_agent_2.mon_out.item_collected_out_port.connect(apb_coverage_1.aport_out_mon);
   endfunction
  
 endclass
