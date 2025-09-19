@@ -1,4 +1,4 @@
-`include "defines.svh"
+//`include "defines.svh"
 class apb_driver extends uvm_driver #(apb_sequence_item);
   `uvm_component_utils(apb_driver)
 
@@ -23,7 +23,7 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
 
 task drive();
 
-if(PRESTn && transfer)
+/*if(PRESETn && transfer)
   begin
  vif.apb_write_paddr<=req.apb_write_paddr;    
  vif.apb_read_paddr<=req.apb_read_paddr;    
@@ -31,7 +31,7 @@ if(PRESTn && transfer)
 
  repeat(2) @(posedge vif.PCLK);
 end
-
+*/
 endtask
 
 virtual task run_phase(uvm_phase phase);

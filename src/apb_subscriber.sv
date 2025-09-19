@@ -21,7 +21,7 @@ class apb_coverage extends uvm_component;
   
   covergroup pass_monitor_cov;
     READ_DATA : coverpoint out_mon_trans.apb_read_data_out{ bins read_data_bin[]  = {[0:255]}; }
-    SLAVE_ERR : coverpoint out_mon_trans.PSLVERR{ bins pslverr_bin[]  = {{0,1}; }                                  endgroup 
+    SLAVE_ERR : coverpoint out_mon_trans.PSLVERR{ bins pslverr_bin[]  =  {0,1}; }                                  endgroup 
  
   function new(string name = "apb_coverage", uvm_component parent);
     super.new(name, parent);

@@ -1,2 +1,2 @@
-`define ADDR_WIDTH 9
-`define WIDTH 8
+`define ADDR_WIDTH 8
+`define DATA_WIDTH 8
