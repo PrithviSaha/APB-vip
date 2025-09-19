@@ -25,7 +25,7 @@ class apb_output_monitor extends uvm_monitor #(apb_sequence_item);
   
 
   task monitor();
-    repeat(4)
+   /* repeat(4)
     @(posedge vif.PCLK);
     begin
         seq_item=apb_sequence_item ::type_id::create("seq_item",this);
@@ -34,10 +34,12 @@ class apb_output_monitor extends uvm_monitor #(apb_sequence_item);
         seq_item.apb_read_data_out=vif.apb_read_data_out;
         seq_item.PSLVERR=vif.PSLVERR;
     end
-  endtask
+  */endtask
   
   virtual task run_phase(uvm_phase phase);
     forever begin
     monitor();
     end
   endtask 
+
+endclass

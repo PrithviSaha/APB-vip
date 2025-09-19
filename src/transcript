@@ -1,0 +1,8 @@
+# vsim -c top 
+# Start time: 16:59:58 on Sep 19,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: apb_top.sv(26): Module 'APB_DESIGN' is not defined.
+# Optimization failed
+# Error loading design
+# End time: 16:59:58 on Sep 19,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0

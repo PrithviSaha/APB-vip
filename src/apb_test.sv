@@ -21,7 +21,7 @@ class apb_test extends uvm_test;
 
 	task run_phase(uvm_phase phase);
 		phase.raise_objection(this);
-		apb_seq.start(apb_env.apb_active_agt.apb_active_seqr);
+		apb_seq.start(apb_env.apb_agent_1.seqr);
 		phase.drop_objection(this);
 	endtask
 
