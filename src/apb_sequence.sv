@@ -11,9 +11,10 @@ class base_seq extends uvm_sequence #(apb_sequence_item);
      repeat(4) begin
        req = apb_sequence_item::type_id::create("req");
        wait_for_grant();
-       req.randomize();
+       void'(req.randomize());
        send_request(req);
        wait_for_item_done();
+
      end
    endtask
     
