@@ -14,13 +14,13 @@ interface apb_if(input logic PCLK);
 		default input #1 output #1;
     output PRESETn , transfer , apb_write_paddr, apb_read_paddr, apb_write_data, READ_WRITE;
    // input  apb_read_data_out, PSLVERR;
-  endclocking: drv_cb
+  endclocking
 
   clocking mon_cb @(posedge PCLK);
 		default input #1 output #1;
     input PRESETn , transfer , apb_write_paddr, apb_read_paddr, apb_write_data, READ_WRITE ,
 		       apb_read_data_out, PSLVERR;
-  endclocking: mon_cb
+  endclocking
 
   modport DRV(clocking drv_cb);
   modport MON(clocking mon_cb);
