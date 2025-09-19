@@ -1,15 +1,14 @@
-//`include "defines.svh"
-
+`include "defines.svh"
 class apb_driver extends uvm_driver #(apb_sequence_item);
   `uvm_component_utils(apb_driver)
 
   virtual apb_if.DRV vif;
   
-  //uvm_analysis_port #(apb_sequence_item) item_collected_port;	//port for coverage
+  uvm_analysis_port #(apb_sequence_item) item_collected_port;   //port for coverage
     
   function new (string name = "apb_driver", uvm_component parent = null);
     super.new(name, parent);
-  //  item_collected_port = new("item_collected_port", this);
+    item_collected_port = new("item_collected_port", this);
   endfunction
 
   function void build_phase(uvm_phase phase);
@@ -20,16 +19,30 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
 
   endfunction
   
-  virtual task run_phase(uvm_phase phase);
+
+
+task drive();
+
+if(PRESTn && transfer)
+  begin
+ vif.apb_write_paddr<=req.apb_write_paddr;    
+ vif.apb_read_paddr<=req.apb_read_paddr;    
+ vif.apb_write_data<=req.apb_write_data;  
+
+ repeat(2) @(posedge vif.PCLK);
+end
+
+endtask
+
+virtual task run_phase(uvm_phase phase);
     forever begin
     seq_item_port.get_next_item(req);
     drive();
     seq_item_port.item_done();
     end
-  endtask
+endtask   
 
- task drive();
-    //driver logic here
-  endtask
 
-endclass
+
+
+

@@ -1,55 +1,76 @@
-`include "uvm_pkg.sv"
 `include "uvm_macros.svh"
-`include "apb_pkg.sv"
+`include "defines.svh"
+`include "apb_package.sv"
 `include "apb_if.sv"
-`include "master.sv"
-`include "slave1.sv"
-`include "slave2.sv"
+`include "apb_assertion.sv"
+`include "apb_design.sv"
+import uvm_pkg::*;
+import apb_package::*;
+ 
+module top;
+ 
+  bit PCLK = 0;
+  bit PRESETn = 0;
+  bit transfer = 0;
+ 
+//clock generation
+ 
+  initial begin
+    forever #5 PCLK = ~PCLK;
+  end
+ 
+//reset generation
+ 
+  initial begin
+    PRESETn = 0;
+    repeat(2) @(posedge PCLK);
+    PRESETn = 1;
+  end
+ 
+//virtual interface
+ 
+   apb_if vif(PCLK,PRESETn,transfer);
+ 
+// connecting interface with design
+ 
+   APB_DESIGN  dut(
+    .PCLK(vif.PCLK),
+    .PRESERTn(vif.PRESETn),
+    .transfer(vif.transfer),
+    .apb_write_paddr(vif.apb_write_paddr),
+    .apb_read_paddr(vif.apb_read_paddr),
+    .apb_write_data(vif.apb_write_data),
+    .READ_WRITE(vif.READ_WRITE),
+    .PSLVERR(vif.PSLVERR)
+  );
+ 
+//binding assertion
+ 
+bind vif apb_assetion ASSERT(
+    .PCLK(vif.PCLK),
+    .PRESERTn(vif.PRESETn),
+    .transfer(vif.transfer),
+    .apb_write_paddr(vif.apb_write_paddr),
+    .apb_read_paddr(vif.apb_read_paddr),
+    .apb_write_data(vif.apb_write_data),
+    .READ_WRITE(vif.READ_WRITE),
+    .PSLVERR(vif.PSLVERR)
+  );
+ 
 
-module APB_Protocol(
-                 input PCLK,PRESETn,transfer,READ_WRITE,
-                 input [8:0] apb_write_paddr,
-                 input [7:0]apb_write_data,
-                 input [8:0] apb_read_paddr,
-                 output PSLVERR,
-                 output [7:0] apb_read_data_out
-          );
+  initial begin
  
-       wire [7:0]PWDATA,PRDATA,PRDATA1,PRDATA2;
-       wire [8:0]PADDR;
+    uvm_config_db#(virtual apb_if)::set(null,"*","vif",vif);
+    $dumpfile("dump.vcd");
+    $dumpvars;
  
-       wire PREADY,PREADY1,PREADY2,PENABLE,PSEL1,PSEL2,PWRITE;
+  end
  
+  initial begin
  
-        assign PREADY = PADDR[8] ? PREADY2 : PREADY1 ;
-        assign PRDATA = READ_WRITE ? (PADDR[8] ? PRDATA2 : PRDATA1) : 8'dx ;
+    run_test("apb_test");
  
+      #100 $finish;
  
-       master_bridge dut_mas(
-                     apb_write_paddr,
-                     apb_read_paddr,
-                     apb_write_data,
-                     PRDATA,
-                     PRESETn,
-                     PCLK,
-                     READ_WRITE,
-                     transfer,
-                     PREADY,
-                     PSEL1,
-                     PSEL2,
-                     PENABLE,
-                     PADDR,
-                     PWRITE,
-                     PWDATA,
-                     apb_read_data_out,
-                     PSLVERR
-                       );
- 
- 
-      slave1 dut1(  PCLK,PRESETn, PSEL1,PENABLE,PWRITE, PADDR[7:0],PWDATA, PRDATA1, PREADY1 );
- 
-      slave2 dut2(  PCLK,PRESETn, PSEL2,PENABLE,PWRITE, PADDR[7:0],PWDATA, PRDATA2, PREADY2 );
- 
- 
+  end
 endmodule
-
