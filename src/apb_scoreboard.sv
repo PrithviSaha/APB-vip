@@ -1,4 +1,4 @@
-`include "defines.svh"
+//`include "defines.svh"
 //TLM DECL Ports
 `uvm_analysis_imp_decl(_apb_input_mon_scb)
 `uvm_analysis_imp_decl(_apb_output_mon_scb)
@@ -15,8 +15,8 @@ class apb_scoreboard extends uvm_scoreboard;
 	logic [ ( `DATA_WIDTH - 1 ) + 1 : 0 ] reference_results;
 
 	// mimicing the memory funactionlaity using register 	
+	reg [ `DATA_WIDTH - 1 : 0 ] slave0 [ ( 2 ** `ADDR_WIDTH ) - 1 : 0 ];
 	reg [ `DATA_WIDTH - 1 : 0 ] slave1 [ ( 2 ** `ADDR_WIDTH ) - 1 : 0 ];
-	reg [ `DATA_WIDTH - 1 : 0 ] slave2 [ ( 2 ** `ADDR_WIDTH ) - 1 : 0 ];
   
 	// declaring PSLVx and PADDR	in order to extract select slave bit 
 	// and address bits from both apb_write_paddr and apb_read_paddr  
@@ -128,8 +128,8 @@ class apb_scoreboard extends uvm_scoreboard;
 	
 			for(int i = 0 ; i < ( 2 ** `ADDR_WIDTH ); i++ )
 			begin
-				slave1[i] = 'bz;
-				slave2[i] = 'bz;
+				slave0[i] = 'bx;
+				slave1[i] = 'bx;
 			end
 		end
 
@@ -144,10 +144,10 @@ class apb_scoreboard extends uvm_scoreboard;
 				{ PSLVx , PADDR } = packet_3.apb_read_paddr;
     
 			if( PSLVx )
-				//SLAVE0 Operation
+				//SLAVE1 Operation
 				slave1_operation(packet_3,PADDR);
 			else
-				//SLAVE1 Opertion
+				//SLAVE0 Opertion
 				slave0_operation(packet_3,PADDR);
 		end
 		$display(" Reference output : @ %0t \n  APB_READ_DATA_OUT = %d | PSLVERR = %b ",
@@ -160,7 +160,7 @@ class apb_scoreboard extends uvm_scoreboard;
 	//         performs the SLAVE0 operation                //
 	//------------------------------------------------------//
 
-	task slave0_operation(input apb_sequence_item packet_3 , input logic PADDR );
+	task slave1_operation(input apb_sequence_item packet_3 , input logic PADDR );
 		if( packet_3.READ_WRITE ) begin
 			slave1[PADDR] = packet_3.apb_write_data;
 		end
@@ -173,12 +173,12 @@ class apb_scoreboard extends uvm_scoreboard;
 	//           performs the SLAVE1 operation              //
 	//------------------------------------------------------//
 
-	task slave1_operation(input apb_sequence_item packet_3 , input logic PADDR);
+	task slave0_operation(input apb_sequence_item packet_3 , input logic PADDR);
 		if( packet_3.READ_WRITE ) begin
-			slave2[PADDR] = packet_3.apb_write_data;
+			slave0[PADDR] = packet_3.apb_write_data;
 		end
 		else begin
-			ref_apb_read_data_out = slave2[PADDR];
+			ref_apb_read_data_out = slave0[PADDR];
 		end
 	endtask
 

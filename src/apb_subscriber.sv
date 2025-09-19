@@ -8,8 +8,6 @@ class apb_coverage extends uvm_component;
   apb_sequence_item ip_mon_trans, out_mon_trans;
   real ip_mon_cov, out_mon_cov;
   
-  virtual apb_if vif;
-  
   covergroup active_mon_cov;   
     TRANSFER : coverpoint ip_mon_trans.transfer{ bins transfer_bin[]  = {0,1}; }
     READ_WRITE: coverpoint ip_mon_trans.READ_WRITE{ bins read_write_bin[]  = {0,1}; }
@@ -23,11 +21,9 @@ class apb_coverage extends uvm_component;
   
   covergroup pass_monitor_cov;
     READ_DATA : coverpoint out_mon_trans.apb_read_data_out{ bins read_data_bin[]  = {[0:255]}; }
-    SLAVE_ERR : coverpoint out_mon_trans.PSLVERR{ bins pslverr_bin[]  = {{0,1}; }
-                                                 
-  endgroup 
-  
-  function new(string name = "", uvm_component parent);
+    SLAVE_ERR : coverpoint out_mon_trans.PSLVERR{ bins pslverr_bin[]  = {{0,1}; }                                  endgroup 
+ 
+  function new(string name = "apb_coverage", uvm_component parent);
     super.new(name, parent);
     pass_monitor_cov = new;
     active_mon_cov = new;
@@ -36,10 +32,6 @@ class apb_coverage extends uvm_component;
   endfunction
   
   function void write_act_mon_cg(apb_sequence_item t);
-    if(t==null) begin
-      `uvm_warning(get_type_name(), "Coverage got NULL transaction, skipping");
-      return;
-    end
     ip_mon_trans = t;
     active_mon_cov.sample();
   endfunction
