@@ -19,11 +19,7 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
 
   endfunction
   
- // task send_to_interface();
- //   vif.drv_cb.
- // endtask
-
-  task drive();
+  task send_to_interface();
     vif.drv_cb.PRESETn <= req.PRESETn;
     vif.drv_cb.transfer <= req.transfer;
     vif.drv_cb.READ_WRITE <= req.READ_WRITE;
@@ -32,7 +28,13 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
     vif.drv_cb.apb_write_data <= req.apb_write_data;
   endtask
 
+  task drive();
+    send_to_interface();
+    repeat(2) @(posedge vif.PCLK)
+  endtask
+
   task run_phase(uvm_phase phase);
+    repeat(3) @(posedge vif.PCLK);
     forever begin
       seq_item_port.get_next_item(req);
       drive();
