@@ -1,5 +1,5 @@
 # vsim -c top 
-# Start time: 10:54:47 on Sep 20,2025
+# Start time: 12:00:01 on Sep 20,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -47,7 +47,7 @@
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
 # UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
 # ** Fatal: (SIGSEGV) Bad handle or reference.
-#    Time: 0 ns  Iteration: 15  Process: /uvm_pkg::uvm_phase::m_run_phases/#FORK#1847_f6d0aaf File: /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_common_phases.svh
+#    Time: 0 ns  Iteration: 15  Process: /uvm_pkg::uvm_phase::m_run_phases/#FORK#1847_f6d0adb File: /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_common_phases.svh
 # Fatal error in Function apb_pkg/apb_environment::connect_phase at apb_environment.sv line 28
 # 
 # HDL call sequence:
@@ -60,5 +60,5 @@
 # called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_phase.svh 1156 Task uvm_pkg/uvm_phase::execute_phase
 # called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_phase.svh 1847 Task uvm_pkg/uvm_phase::m_run_phases
 # 
-# End time: 10:54:52 on Sep 20,2025, Elapsed time: 0:00:05
+# End time: 12:00:07 on Sep 20,2025, Elapsed time: 0:00:06
 # Errors: 2, Warnings: 0

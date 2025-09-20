@@ -27,10 +27,11 @@ class apb_output_monitor extends uvm_monitor;
     @(posedge vif.PCLK);
     begin
 //capturing the signals 
-        seq_item.apb_read_data_out=vif.apb_read_data_out;
-        seq_item.PSLVERR=vif.PSLVERR;
-    end
-	 */
+  */   seq_item.apb_read_data_out = vif.mon_cb.apb_read_data_out;
+       seq_item.PSLVERR = vif.mon_cb.PSLVERR;
+		   item_collected_out_port.write(seq_item);
+    //end
+	 
   endtask
   
   task run_phase(uvm_phase phase);

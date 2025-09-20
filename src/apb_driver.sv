@@ -24,7 +24,12 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
  // endtask
 
   task drive();
-    
+		vif.drv_cb.PRESETn <= req.PRESETn;
+		vif.drv_cb.transfer<= req.transfer;
+		vif.drv_cb.READ_WRITE <= req.READ_WRITE;
+		vif.drv_cb.apb_read_paddr <= req.apb_read_paddr;
+    vif.drv_cb.apb_write_paddr <= req.apb_write_paddr;
+		vif.drv_cb.apb_write_data <= req.apb_write_data;
   endtask
 
   task run_phase(uvm_phase phase);

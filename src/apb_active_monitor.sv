@@ -15,7 +15,7 @@ class apb_input_monitor extends uvm_monitor;
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-		seq_item = apb_sequence_item ::type_id::create("seq_item",this); 
+		seq_item = apb_sequence_item::type_id::create("seq_item"); 
 		if(!uvm_config_db#(virtual apb_if)::get(this, "", "vif", vif))
        `uvm_fatal("NO_VIF",{"virtual interface must be set for: ",get_full_name(),".vif"});
   endfunction
@@ -26,12 +26,16 @@ class apb_input_monitor extends uvm_monitor;
     @(posedge vif.PCLK);
     begin
     seq_item=apb_sequence_item ::type_id::create("seq_item",this);    
-    //capturing the signals
-    seq_item.apb_write_paddr=vif.apb_write_paddr;    
-    seq_item.apb_read_paddr=vif.apb_read_paddr; 
-    seq_item.apb_write_data=vif.apb_write_data;  
-    end
- */ endtask
+    *///capturing the signals
+    seq_item.PRESETn = vif.mon_cb.PRESETn;    
+    seq_item.transfer = vif.mon_cb.transfer; 
+    seq_item.READ_WRITE = vif.mon_cb.READ_WRITE;  
+    seq_item.apb_write_paddr = vif.mon_cb.apb_write_paddr;    
+    seq_item.apb_read_paddr = vif.mon_cb.apb_read_paddr; 
+    seq_item.apb_write_data = vif.mon_cb.apb_write_data;  
+		item_collected_in_port.write(seq_item);
+		//end
+  endtask
   
   task run_phase(uvm_phase phase);
     forever begin
