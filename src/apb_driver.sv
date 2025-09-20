@@ -4,11 +4,11 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
 
   virtual apb_if vif;
   
-  uvm_analysis_port #(apb_sequence_item) item_collected_port;   //port for coverage
+ // uvm_analysis_port #(apb_sequence_item) item_collected_port;   //port for coverage
     
-  function new (string name = "apb_driver", uvm_component parent = null);
+  function new (string name = "apb_driver", uvm_component parent );
     super.new(name, parent);
-    item_collected_port = new("item_collected_port", this);
+   // item_collected_port = new("item_collected_port", this);
   endfunction
 
   function void build_phase(uvm_phase phase);
@@ -27,7 +27,7 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
     
   endtask
 
-	virtual task run_phase(uvm_phase phase);
+  task run_phase(uvm_phase phase);
     forever begin
       seq_item_port.get_next_item(req);
       drive();

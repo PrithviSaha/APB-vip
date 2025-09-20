@@ -33,7 +33,7 @@ class apb_output_monitor extends uvm_monitor;
 	 */
   endtask
   
-  virtual task run_phase(uvm_phase phase);
+  task run_phase(uvm_phase phase);
     forever begin
     monitor();
     end

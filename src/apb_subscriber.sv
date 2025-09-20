@@ -3,8 +3,8 @@
 
 class apb_coverage extends uvm_component;
   `uvm_component_utils(apb_coverage)
-  uvm_analysis_imp_act_mon_cg #(apb_sequence_item, apb_coverage) aport_ip_mon;
-  uvm_analysis_imp_pass_mon_cg #(apb_sequence_item, apb_coverage) aport_out_mon;
+  uvm_analysis_imp_act_mon_cg#(apb_sequence_item, apb_coverage) aport_ip_mon;
+  uvm_analysis_imp_pass_mon_cg#(apb_sequence_item, apb_coverage) aport_out_mon;
   apb_sequence_item ip_mon_trans, out_mon_trans;
   real ip_mon_cov, out_mon_cov;
   
@@ -25,19 +25,19 @@ class apb_coverage extends uvm_component;
  
   function new(string name = "apb_coverage", uvm_component parent);
     super.new(name, parent);
-    pass_monitor_cov = new;
-    active_mon_cov = new;
+    pass_monitor_cov = new();
+    active_mon_cov = new();
     aport_ip_mon = new("aport_ip_mon", this);
     aport_out_mon = new("aport_out_mon", this);
   endfunction
   
-  function void write_act_mon_cg(apb_sequence_item t);
-    ip_mon_trans = t;
+  function void write_act_mon_cg(apb_sequence_item in);
+    ip_mon_trans = in;
     active_mon_cov.sample();
   endfunction
   
-  function void write_pass_mon_cg(apb_sequence_item t);
-    out_mon_trans = t;
+  function void write_pass_mon_cg(apb_sequence_item out);
+    out_mon_trans = out;
     pass_monitor_cov.sample();
   endfunction
   

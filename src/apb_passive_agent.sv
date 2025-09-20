@@ -3,7 +3,7 @@ class apb_passive_agent extends uvm_agent;
 
   `uvm_component_utils(apb_passive_agent)
 
-  function new(string name, uvm_component parent);
+  function new(string name = "apb_output_monitor", uvm_component parent);
     super.new(name, parent);
   endfunction
 

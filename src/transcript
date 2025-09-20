@@ -1,5 +1,5 @@
 # vsim -c top 
-# Start time: 23:52:06 on Sep 19,2025
+# Start time: 10:54:47 on Sep 20,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -48,10 +48,10 @@
 # UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
 # ** Fatal: (SIGSEGV) Bad handle or reference.
 #    Time: 0 ns  Iteration: 15  Process: /uvm_pkg::uvm_phase::m_run_phases/#FORK#1847_f6d0aaf File: /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_common_phases.svh
-# Fatal error in Function apb_pkg/apb_environment::connect_phase at apb_environment.sv line 27
+# Fatal error in Function apb_pkg/apb_environment::connect_phase at apb_environment.sv line 28
 # 
 # HDL call sequence:
-# Stopped at apb_environment.sv 27 Function apb_pkg/apb_environment::connect_phase
+# Stopped at apb_environment.sv 28 Function apb_pkg/apb_environment::connect_phase
 # called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_common_phases.svh 96 Function uvm_pkg/uvm_connect_phase::exec_func
 # called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_bottomup_phase.svh 108 Function uvm_pkg/uvm_bottomup_phase::execute
 # called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_bottomup_phase.svh 81 Function uvm_pkg/uvm_bottomup_phase::traverse
@@ -60,5 +60,5 @@
 # called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_phase.svh 1156 Task uvm_pkg/uvm_phase::execute_phase
 # called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_phase.svh 1847 Task uvm_pkg/uvm_phase::m_run_phases
 # 
-# End time: 23:52:15 on Sep 19,2025, Elapsed time: 0:00:09
+# End time: 10:54:52 on Sep 20,2025, Elapsed time: 0:00:05
 # Errors: 2, Warnings: 0
