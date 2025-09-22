@@ -1,0 +1,44 @@
+var g_data = {
+z743:{prod:'Questa',reporttype:'in',scopes:[{s:'716',b:'1',val:'apb_package'},{link:'z.htm?f=1&s=743',val:'apb_coverage'}],lang:'SystemVerilog',src:{z:'apb_subscriber.sv'},summaryTables:{loctable:{
+headers:['Coverage Type', 'Bins', 'Hits', 'Misses', 'Weight', '% Hit', 'Coverage'],
+totalhits:{class:'odd_r', val:'5.51%'},avgw:{class:'bgRed', val:'31.67%'},
+data:[
+{link:{class:'odd',val:'g.htm?f=1&s=743,Covergroups'},tb:{class:'odd_r', val:'906'},cb:{class:'odd_r', val:'50'},ms:{class:'odd_r', val:'856'},wt:{class:'odd_r', val:'1'},hp:{class:'odd_r', val:'5.51%'},cp:{class:'bgRed', val:'31.67%'}}
+]
+}
+}
+},
+z4:{prod:'Questa',reporttype:'du',duname:'work.apb_package',lang:'SystemVerilog',src:{z:'apb_package.sv'},summaryTables:{loctable:{
+headers:['Coverage Type', 'Bins', 'Hits', 'Misses', 'Weight', '% Hit', 'Coverage'],
+totalhits:{class:'odd_r', val:'5.51%'},avgw:{class:'bgRed', val:'31.67%'},
+data:[
+{link:{class:'odd',val:'Covergroups'},tb:{class:'odd_r', val:'906'},cb:{class:'odd_r', val:'50'},ms:{class:'odd_r', val:'856'},wt:{class:'odd_r', val:'1'},hp:{class:'odd_r', val:'5.51%'},cp:{class:'bgRed', val:'31.67%'}}
+]
+}
+}
+},
+z716:{prod:'Questa',reporttype:'in',scopes:[{link:'z.htm?f=1&s=716',val:'apb_package'}],du:{val:'work.apb_package',link:'z.htm?f=1&s=716'},lang:'SystemVerilog',src:{z:'apb_package.sv'},summaryTables:{
+headers:['Cvg'],
+instances:[{parent:'0',ln:'TOTAL',covs:[{class:'bgRed', val:'31.67'},{class:'bgRed', val:'31.67'}]},
+{parent:'0',ln:'apb_package',covs:[{class:'bgRed', val:'31.67'},{class:'bgRed', val:'31.67'}]},
+{parent:'1',link:'z.htm?f=1&s=743',ln:'apb_coverage',covs:[{class:'bgRed', val:'31.67'},{class:'bgRed', val:'31.67'}]},
+]
+,loctable:{
+headers:['Coverage Type', 'Bins', 'Hits', 'Misses', 'Weight', '% Hit', 'Coverage'],
+totalhits:{class:'odd_r', val:'5.51%'},avgw:{class:'bgRed', val:'31.67%'},
+data:[
+{link:{class:'odd',val:'Covergroups'},tb:{class:'odd_r', val:'906'},cb:{class:'odd_r', val:'50'},ms:{class:'odd_r', val:'856'},wt:{class:'odd_r', val:'1'},hp:{class:'odd_r', val:'5.51%'},cp:{class:'bgRed', val:'31.67%'}}
+]
+}
+,rectable:{
+headers:['Coverage Type', 'Bins', 'Hits', 'Misses', 'Weight', '% Hit', 'Coverage'],
+totalhits:{class:'odd_r', val:'5.51%'},avgw:{class:'bgRed', val:'31.67%'},
+data:[
+{link:{class:'odd',val:'Covergroups'},tb:{class:'odd_r', val:'906'},cb:{class:'odd_r', val:'50'},ms:{class:'odd_r', val:'856'},wt:{class:'odd_r', val:'1'},hp:{class:'odd_r', val:'5.51%'},cp:{class:'bgRed', val:'31.67%'}}
+]
+}
+}
+},
+dummyEnd:0
+};
+processSummaryData(g_data);
