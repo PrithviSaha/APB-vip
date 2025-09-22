@@ -14,7 +14,7 @@ class base_test extends uvm_test;
 
     // End of elaboration
   function void end_of_elaboration();
-    super.end_of_elaboration();
+//    super.end_of_elaboration();
     uvm_top.print_topology();
   endfunction
   

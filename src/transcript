@@ -1,5 +1,5 @@
 # vsim -c top 
-# Start time: 11:07:29 on Sep 22,2025
+# Start time: 11:41:45 on Sep 22,2025
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -60,3 +60,5 @@
 # called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_phase.svh 1156 Task uvm_pkg/uvm_phase::execute_phase
 # called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_phase.svh 1847 Task uvm_pkg/uvm_phase::m_run_phases
 # 
+# End time: 11:41:57 on Sep 22,2025, Elapsed time: 0:00:12
+# Errors: 2, Warnings: 0

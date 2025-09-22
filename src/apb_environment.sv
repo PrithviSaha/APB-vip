@@ -20,10 +20,11 @@ class apb_environment extends uvm_env;
 
     set_config_int("apb_agent_1", "is_active", UVM_ACTIVE);
     set_config_int("apb_agent_2", "is_active", UVM_PASSIVE);
+     `uvm_info("ENV", $sformatf("Build: agent=%p, scoreboard=%p", apb_agent_1, apb_scoreboard_1), UVM_LOW)
   endfunction
 
   function void connect_phase(uvm_phase phase);
-    super.connect_phase(phase);
+    //super.connect_phase(phase);
 
     apb_agent_1.mon_in.item_collected_in_port.connect(apb_scoreboard_1.inp_mon_port);
     apb_agent_1.mon_in.item_collected_in_port.connect(apb_coverage_1.aport_ip_mon);
