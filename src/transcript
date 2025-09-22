@@ -1,6 +1,6 @@
 # vsim -c top 
-# Start time: 11:41:45 on Sep 22,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Start time: 11:54:24 on Sep 22,2025
+# ** Note: (vsim-3812) Design is being optimized...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -18,8 +18,7 @@
 # Loading sv_std.std
 # Loading work.apb_if(fast)
 # Loading mtiUvm.uvm_pkg
-# Loading work.apb_pkg(fast)
-# Loading work.apb_top_sv_unit(fast)
+# Loading work.apb_package(fast)
 # Loading work.top(fast)
 # Loading mtiUvm.questa_uvm_pkg(fast)
 # Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
@@ -45,20 +44,124 @@
 # 
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
-# UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
-# ** Fatal: (SIGSEGV) Bad handle or reference.
-#    Time: 0 ns  Iteration: 15  Process: /uvm_pkg::uvm_phase::m_run_phases/#FORK#1847_f6d2adb File: /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_common_phases.svh
-# Fatal error in Function apb_pkg/apb_environment::connect_phase at /fetools/work_area/frontend/Batch_10/Jason_Rodrigues/apb/APB-vip/src/apb_environment.sv line 28
+# UVM_INFO @ 0: reporter [RNTST] Running test regression_test...
+# UVM_INFO apb_environment.sv(23) @ 0: uvm_test_top.apb_env [ENV] Build: agent='{m_leaf_name:"apb_agent_1", m_inst_id:485, use_uvm_seeding:1, m_inst_count:549, __m_uvm_status_container:@uvm_status_container@1, m_rh:@uvm_report_handler@74, enable_stop_interrupt:0, print_enabled:1, recorder:null, m_domain:@uvm_domain@2, m_phase_imps:'{ }, m_current_phase:null, m_phase_process:null, m_build_done:0, m_phasing_active:0, m_parent:@apb_environment@1, m_children:'{ }, m_children_by_handle:'{ }, m_stream_handle:'{ }, m_tr_h:'{ }, m_name:"uvm_test_top.apb_env.apb_agent_1", event_pool:@uvm_object_string_pool__1@3, recording_detail:0, m_verbosity_settings:'{}, m_config_set:1, print_config_matches:0, type_name:"uvm_component", m_time_settings:'{}, is_active:UVM_ACTIVE, type_name:"uvm_agent", drv:null, seqr:null, mon_in:null, type_name:"apb_active_agent"}, scoreboard='{m_leaf_name:"apb_scoreboard_1", m_inst_id:499, use_uvm_seeding:1, m_inst_count:549, __m_uvm_status_container:@uvm_status_container@1, m_rh:@uvm_report_handler@76, enable_stop_interrupt:0, print_enabled:1, recorder:null, m_domain:@uvm_domain@2, m_phase_imps:'{ }, m_current_phase:null, m_phase_process:null, m_build_done:0, m_phasing_active:0, m_parent:@apb_environment@1, m_children:'{"inp_mon_port":@uvm_port_component__6@2, "out_mon_port":@uvm_port_component__6@1 }, m_children_by_handle:'{@uvm_port_component__6@1:@uvm_port_component__6@1, @uvm_port_component__6@2:@uvm_port_component__6@2 }, m_stream_handle:'{ }, m_tr_h:'{ }, m_name:"uvm_test_top.apb_env.apb_scoreboard_1", event_pool:@uvm_object_string_pool__1@5, recording_detail:0, m_verbosity_settings:'{}, m_config_set:1, print_config_matches:0, type_name:"uvm_component", m_time_settings:'{}, type_name:"uvm_scoreboard", mem:'{x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x}, PASS:0, FAIL:0, inp_q:'{}, out_q:'{}, out_mon_port:@uvm_analysis_imp_out_mon_scb__1@1, inp_mon_port:@uvm_analysis_imp_in_mon_scb__1@1, inp_mon_item:null, out_mon_item:null, vif:null, type_name:"apb_scoreboard"}
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------------------
+# Name                             Type                          Size  Value
+# --------------------------------------------------------------------------
+# uvm_test_top                     regression_test               -     @471 
+#   apb_env                        apb_environment               -     @478 
+#     apb_agent_1                  apb_active_agent              -     @485 
+#       drv                        apb_driver                    -     @659 
+#         rsp_port                 uvm_analysis_port             -     @674 
+#         seq_item_port            uvm_seq_item_pull_port        -     @666 
+#       mon_in                     apb_input_monitor             -     @682 
+#         item_collected_in_port   uvm_analysis_port             -     @689 
+#       seqr                       apb_sequencer                 -     @550 
+#         rsp_export               uvm_analysis_export           -     @557 
+#         seq_item_export          uvm_seq_item_pull_imp         -     @651 
+#         arbitration_queue        array                         0     -    
+#         lock_queue               array                         0     -    
+#         num_last_reqs            integral                      32    'd1  
+#         num_last_rsps            integral                      32    'd1  
+#     apb_agent_2                  apb_passive_agent             -     @492 
+#       mon_out                    apb_output_monitor            -     @709 
+#         item_collected_out_port  uvm_analysis_port             -     @716 
+#     apb_coverage_1               apb_coverage                  -     @522 
+#       aport_ip_mon               uvm_analysis_imp_act_mon_cg   -     @529 
+#       aport_out_mon              uvm_analysis_imp_pass_mon_cg  -     @537 
+#     apb_scoreboard_1             apb_scoreboard                -     @499 
+#       inp_mon_port               uvm_analysis_imp_in_mon_scb   -     @514 
+#       out_mon_port               uvm_analysis_imp_out_mon_scb  -     @506 
+# --------------------------------------------------------------------------
 # 
-# HDL call sequence:
-# Stopped at /fetools/work_area/frontend/Batch_10/Jason_Rodrigues/apb/APB-vip/src/apb_environment.sv 28 Function apb_pkg/apb_environment::connect_phase
-# called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_common_phases.svh 96 Function uvm_pkg/uvm_connect_phase::exec_func
-# called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_bottomup_phase.svh 108 Function uvm_pkg/uvm_bottomup_phase::execute
-# called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_bottomup_phase.svh 81 Function uvm_pkg/uvm_bottomup_phase::traverse
-# called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_bottomup_phase.svh 61 Function uvm_pkg/uvm_bottomup_phase::traverse
-# called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_bottomup_phase.svh 61 Function uvm_pkg/uvm_bottomup_phase::traverse
-# called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_phase.svh 1156 Task uvm_pkg/uvm_phase::execute_phase
-# called from  /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_phase.svh 1847 Task uvm_pkg/uvm_phase::m_run_phases
+# DRIVER : W_ADDR = 001, R_ADDR = 141, READ_WRITE = 0
+# mem stored = 0x14 at 0x1
+# UVM_INFO apb_scoreboard.sv(39) @ 45: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x1 Data=0x14
+# DRIVER : W_ADDR = 1c8, R_ADDR = 001, READ_WRITE = 1
+# UVM_INFO apb_scoreboard.sv(43) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1 Data=0x14
+# UVM_INFO apb_scoreboard.sv(45) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(46) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(47) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# DRIVER : W_ADDR = 00a, R_ADDR = 1d3, READ_WRITE = 0
+# mem stored = 0xe9 at 0xa
+# UVM_INFO apb_scoreboard.sv(39) @ 105: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0xa Data=0xe9
+# DRIVER : W_ADDR = 0ff, R_ADDR = 00a, READ_WRITE = 1
+# UVM_INFO apb_scoreboard.sv(43) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0xa Data=0xe9
+# UVM_INFO apb_scoreboard.sv(45) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(46) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(47) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# DRIVER : W_ADDR = 003, R_ADDR = 1e9, READ_WRITE = 0
+# mem stored = 0x9 at 0x3
+# UVM_INFO apb_scoreboard.sv(39) @ 165: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x3 Data=0x9
+# DRIVER : W_ADDR = 0d9, R_ADDR = 003, READ_WRITE = 1
+# UVM_INFO apb_scoreboard.sv(43) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x3 Data=0x9
+# UVM_INFO apb_scoreboard.sv(45) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(46) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(47) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# DRIVER : W_ADDR = 003, R_ADDR = 044, READ_WRITE = 0
+# mem stored = 0x24 at 0x3
+# UVM_INFO apb_scoreboard.sv(39) @ 225: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x3 Data=0x24
+# DRIVER : W_ADDR = 1f6, R_ADDR = 003, READ_WRITE = 1
+# UVM_INFO apb_scoreboard.sv(43) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x3 Data=0x24
+# UVM_INFO apb_scoreboard.sv(45) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(46) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(47) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# DRIVER : W_ADDR = 006, R_ADDR = 1a6, READ_WRITE = 0
+# mem stored = 0x2b at 0x6
+# UVM_INFO apb_scoreboard.sv(39) @ 285: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x6 Data=0x2b
+# DRIVER : W_ADDR = 128, R_ADDR = 006, READ_WRITE = 1
+# UVM_INFO apb_scoreboard.sv(43) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x6 Data=0x2b
+# UVM_INFO apb_scoreboard.sv(45) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(46) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(47) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# DRIVER : W_ADDR = 000, R_ADDR = 0e2, READ_WRITE = 0
+# mem stored = 0x9b at 0x0
+# UVM_INFO apb_scoreboard.sv(39) @ 345: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x0 Data=0x9b
+# DRIVER : W_ADDR = 02e, R_ADDR = 000, READ_WRITE = 1
+# UVM_INFO apb_scoreboard.sv(43) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x0 Data=0x9b
+# UVM_INFO apb_scoreboard.sv(45) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(46) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(47) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# DRIVER : W_ADDR = 006, R_ADDR = 05a, READ_WRITE = 0
+# mem stored = 0x9f at 0x6
+# UVM_INFO apb_scoreboard.sv(39) @ 405: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x6 Data=0x9f
+# DRIVER : W_ADDR = 1f1, R_ADDR = 006, READ_WRITE = 1
+# UVM_INFO apb_scoreboard.sv(43) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x6 Data=0x9f
+# UVM_INFO apb_scoreboard.sv(45) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(46) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(47) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# DRIVER : W_ADDR = 00a, R_ADDR = 037, READ_WRITE = 0
+# mem stored = 0x8b at 0xa
+# UVM_INFO apb_scoreboard.sv(39) @ 465: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0xa Data=0x8b
+# DRIVER : W_ADDR = 10c, R_ADDR = 00a, READ_WRITE = 1
+# UVM_INFO apb_scoreboard.sv(43) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0xa Data=0x8b
+# UVM_INFO apb_scoreboard.sv(45) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(46) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(47) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 505: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO apb_subscriber.sv(53) @ 505: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [input] Coverage ------> 19.08%,
+# UVM_INFO apb_subscriber.sv(54) @ 505: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [output] Coverage ------> 26.56%
+# Passes = 8 | Fails = 0
 # 
-# End time: 11:41:57 on Sep 22,2025, Elapsed time: 0:00:12
-# Errors: 2, Warnings: 0
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   48
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [ENV]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [SCOREBOARD]    16
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# [apb_coverage]     2
+# [apb_scoreboard]    24
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 505 ns  Iteration: 70  Instance: /top
+# End time: 11:54:31 on Sep 22,2025, Elapsed time: 0:00:07
+# Errors: 0, Warnings: 0

@@ -1,6 +1,6 @@
 //`include "uvm_pkg.sv"
 `include "uvm_macros.svh"  
-//`include "apb_package.sv"
+`include "apb_package.sv"
 `include "apb_if.sv"
 //`include "apb_assertion.sv"
 `include "apb_design.sv"
