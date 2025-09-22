@@ -20,26 +20,30 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
   endfunction
   
   task send_to_interface();
-    vif.drv_cb.PRESETn <= req.PRESETn;
-    vif.drv_cb.transfer <= req.transfer;
-    vif.drv_cb.READ_WRITE <= req.READ_WRITE;
-    vif.drv_cb.apb_read_paddr <= req.apb_read_paddr;
-    vif.drv_cb.apb_write_paddr <= req.apb_write_paddr;
-    vif.drv_cb.apb_write_data <= req.apb_write_data;
+    vif.transfer       <= req.transfer;
+    vif.READ_WRITE     <= req.READ_WRITE;
+    vif.apb_write_paddr <= req.apb_write_paddr;    
+    vif.apb_read_paddr  <= req.apb_read_paddr;    
+    vif.apb_write_data  <= req.apb_write_data;
+  endtask
+  
+  task drive();
+    if (vif.PRESETn && req.transfer) begin
+      send_to_interface();
+      $display("DRIVER : W_ADDR = %h, R_ADDR = %h, READ_WRITE = %0b", req.apb_write_paddr, req.apb_read_paddr, req.READ_WRITE);
+      repeat(3) @(posedge vif.drv_cb);
+    end
   endtask
 
-  task drive();
-    send_to_interface();
-    repeat(2) @(posedge vif.PCLK)
-  endtask
 
   task run_phase(uvm_phase phase);
-    repeat(3) @(posedge vif.PCLK);
+    repeat(3) @(posedge vif.drv_cb);
     forever begin
-      seq_item_port.get_next_item(req);
-      drive();
-      seq_item_port.item_done();
+      seq_item_port.get_next_item(req);  
+      drive();                          
+      seq_item_port.item_done();        
     end
-  endtask   
+  endtask
+
 
 endclass

@@ -1,43 +1,44 @@
 //`include "defines.svh"
 
-class apb_input_monitor extends uvm_monitor #(apb_sequence_item);
-  `uvm_component_utils(apb_monitor)
+class apb_input_monitor extends uvm_monitor;
 
+  `uvm_component_utils(apb_input_monitor)
   virtual apb_if.MON vif;
   apb_sequence_item seq_item;
   
-  uvm_analysis_port #(apb_sequence_item) item_collected_port;   //port for coverage
+  uvm_analysis_port#(apb_sequence_item) item_collected_in_port;   //port for coverage
     
-  function new (string name, uvm_component parent);
+  function new (string name = " apb_input_monitor", uvm_component parent);
     super.new(name, parent);
-    item_collected_port = new("item_collected_port", this);
+    item_collected_in_port = new("item_collected_in_port", this);
   endfunction
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-
-    if(!uvm_config_db#(virtual apb_if)::get(this, "", "vif", vif))
+		seq_item = apb_sequence_item ::type_id::create("seq_item",this); 
+		if(!uvm_config_db#(virtual apb_if)::get(this, "", "vif", vif))
        `uvm_fatal("NO_VIF",{"virtual interface must be set for: ",get_full_name(),".vif"});
-
   endfunction
   
 
   task monitor();
-   /* repeat(4)
-    @(posedge vif.PCLK);
-    begin
     seq_item=apb_sequence_item ::type_id::create("seq_item",this);    
     //capturing the signals
-    seq_item.apb_write_paddr=vif.apb_write_paddr;    
-    seq_item.apb_read_paddr=vif.apb_read_paddr; 
-    seq_item.apb_write_data=vif.apb_write_data;  
-    end
-  */endtask
+    repeat(1) @(posedge vif.mon_cb);
+    seq_item.apb_write_paddr=vif.mon_cb.apb_write_paddr;    
+    seq_item.apb_read_paddr=vif.mon_cb.apb_read_paddr; 
+    seq_item.apb_write_data=vif.mon_cb.apb_write_data;
+    seq_item.READ_WRITE = vif.mon_cb.READ_WRITE;
+    //$display("INP MON: READ_WRITE = %0b", seq_item.READ_WRITE);
+    item_collected_in_port.write(seq_item);
+    repeat(2) @(posedge vif.mon_cb);
+  endtask
   
-  virtual task run_phase(uvm_phase phase);
+  task run_phase(uvm_phase phase);
+    repeat(4) @(posedge vif.mon_cb);
     forever begin
     monitor();
     end
-  endtask
+  endtask 
 
-endclass
+endclass	
