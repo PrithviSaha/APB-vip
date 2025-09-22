@@ -1,3 +1,5 @@
 var g_data = {'dummy':null,
-'2':'apb_package.sv',
-'1':'apb_subscriber.sv'};
+'1':'apb_assertions.sv',
+'4':'apb_package.sv',
+'3':'apb_subscriber.sv',
+'2':'apb_top.sv'};

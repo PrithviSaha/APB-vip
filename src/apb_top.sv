@@ -2,7 +2,7 @@
 `include "uvm_macros.svh"  
 `include "apb_package.sv"
 `include "apb_if.sv"
-//`include "apb_assertion.sv"
+`include "apb_assertions.sv"
 `include "apb_design.sv"
 module top;
   import uvm_pkg::*;
@@ -46,16 +46,16 @@ APB_Protocol dut(
 
 //binding assertion
 
-/*bind vif apb_assetion ASSERT(
+bind vif apb_assertions ASSERT(
     .PCLK(vif.PCLK),
-    .PRESERTn(vif.PRESETn),
+    .PRESETn(vif.PRESETn),
     .transfer(vif.transfer),
     .apb_write_paddr(vif.apb_write_paddr),
     .apb_read_paddr(vif.apb_read_paddr),
     .apb_write_data(vif.apb_write_data),
     .READ_WRITE(vif.READ_WRITE),
     .PSLVERR(vif.PSLVERR)
-  );*/
+  );
 
 
   initial begin

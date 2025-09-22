@@ -21,6 +21,7 @@ main:
 	vcover report -html coverage.ucdb -htmldir covReport -details
  
 read:
+	source $(QUESTA)
 	vcover report -details coverage.ucdb
 
 view:

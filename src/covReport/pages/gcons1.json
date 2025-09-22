@@ -1,5 +1,5 @@
 var g_db_data = [
 {dummy:0},
-{name:'active_mon_cov',f:1,type:6,id:744,tb:'648',h:'39',m:'609',hp:'6.01%',cov:['36.39%','R'],g:'100.00%',gp:['36.39%','R'],opts:[[],['merge_instance','auto(true)']],hdlPath:'/apb_package/apb_coverage',parent:'743'},
-{name:'pass_monitor_cov',f:1,type:6,id:751,tb:'258',h:'11',m:'247',hp:'4.26%',cov:['26.95%','R'],g:'100.00%',gp:['26.95%','R'],opts:[[],['merge_instance','auto(true)']],hdlPath:'/apb_package/apb_coverage',parent:'743'}];
+{name:'active_mon_cov',f:1,type:6,id:750,tb:'648',h:'645',m:'3',hp:'99.53%',cov:['83.33%','Y'],g:'100.00%',gp:['83.33%','Y'],opts:[[],['merge_instance','auto(true)']],hdlPath:'/apb_package/apb_coverage',parent:'749'},
+{name:'pass_monitor_cov',f:1,type:6,id:757,tb:'257',h:'257',m:'0',hp:'100.00%',cov:['100.00%','G'],g:'100.00%',gp:['100.00%','G'],opts:[[],['merge_instance','auto(true)']],hdlPath:'/apb_package/apb_coverage',parent:'749'}];
 processConsCovergroupsData(g_db_data);
