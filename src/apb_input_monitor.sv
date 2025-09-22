@@ -25,6 +25,7 @@ class apb_input_monitor extends uvm_monitor;
     seq_item=apb_sequence_item ::type_id::create("seq_item",this);    
     //capturing the signals
     repeat(1) @(posedge vif.mon_cb);
+    seq_item.transfer = vif.mon_cb.transfer;
     seq_item.apb_write_paddr=vif.mon_cb.apb_write_paddr;    
     seq_item.apb_read_paddr=vif.mon_cb.apb_read_paddr; 
     seq_item.apb_write_data=vif.mon_cb.apb_write_data;

@@ -58,17 +58,20 @@ class wr_seq extends uvm_sequence #(apb_sequence_item);
   `uvm_object_utils(wr_seq)
   
   bit [8:0] read_addr;
-   
+   //logic t;
   function new(string name = "wr_seq");
     super.new(name);
   endfunction
   
   virtual task body();
     repeat (`N) begin
-      `uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1;req.apb_write_paddr inside {[0:11]};})
+      `uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1;
+	req.apb_write_paddr inside {[0:11]};})
       //req.apb_write_paddr.rand_mode(0);
       read_addr = req.apb_write_paddr;
-      `uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 1; req.apb_read_paddr == read_addr;})
+      //t = req.transfer;
+      `uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 1; 
+	req.apb_read_paddr == read_addr;})
       //req.apb_write_paddr.rand_mode(1);
     end
   endtask

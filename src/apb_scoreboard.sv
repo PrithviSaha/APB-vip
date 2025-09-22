@@ -35,12 +35,12 @@ class apb_scoreboard extends uvm_scoreboard;
     if(inp_item.READ_WRITE == 0) begin
       mem[inp_item.apb_write_paddr] = inp_item.apb_write_data;
       $display("mem stored = 0x%0h at 0x%0h", mem[inp_item.apb_write_paddr], inp_item.apb_write_paddr);
-      `uvm_info("SCOREBOARD", $sformatf("WRITE: Addr=0x%0h Data=0x%0h",
-        inp_item.apb_write_paddr, inp_item.apb_write_data), UVM_MEDIUM); 
+      `uvm_info("SCOREBOARD", $sformatf("WRITE: Addr=0x%0h Data=0x%0h, transfer = %b",
+        inp_item.apb_write_paddr, inp_item.apb_write_data, inp_item.transfer), UVM_MEDIUM); 
     end
     else begin
-      `uvm_info("SCOREBOARD", $sformatf("READ: Addr=0x%0h Data=0x%0h",
-        inp_item.apb_read_paddr, out_item.apb_read_data_out), UVM_MEDIUM);
+      `uvm_info("SCOREBOARD", $sformatf("READ: Addr=0x%0h Data=0x%0h, transfer = %b",
+        inp_item.apb_read_paddr, out_item.apb_read_data_out, inp_item.transfer), UVM_MEDIUM);
       if(out_item.apb_read_data_out == mem[inp_item.apb_read_paddr]) begin
         `uvm_info(get_type_name(), "---------------------------------------", UVM_NONE)
         `uvm_info(get_type_name(), "----           TEST PASS           ----", UVM_NONE)

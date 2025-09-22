@@ -1,6 +1,6 @@
 # vsim -c top 
-# Start time: 11:54:24 on Sep 22,2025
-# ** Note: (vsim-3812) Design is being optimized...
+# Start time: 12:32:11 on Sep 22,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -78,77 +78,93 @@
 # 
 # DRIVER : W_ADDR = 001, R_ADDR = 141, READ_WRITE = 0
 # mem stored = 0x14 at 0x1
-# UVM_INFO apb_scoreboard.sv(39) @ 45: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x1 Data=0x14
+# UVM_INFO apb_scoreboard.sv(39) @ 45: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x1 Data=0x14, transfer = 1
 # DRIVER : W_ADDR = 1c8, R_ADDR = 001, READ_WRITE = 1
-# UVM_INFO apb_scoreboard.sv(43) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1 Data=0x14
+# UVM_INFO apb_scoreboard.sv(43) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1 Data=0x14, transfer = 1
 # UVM_INFO apb_scoreboard.sv(45) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(46) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(47) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # DRIVER : W_ADDR = 00a, R_ADDR = 1d3, READ_WRITE = 0
 # mem stored = 0xe9 at 0xa
-# UVM_INFO apb_scoreboard.sv(39) @ 105: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0xa Data=0xe9
+# UVM_INFO apb_scoreboard.sv(39) @ 105: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0xa Data=0xe9, transfer = 1
 # DRIVER : W_ADDR = 0ff, R_ADDR = 00a, READ_WRITE = 1
-# UVM_INFO apb_scoreboard.sv(43) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0xa Data=0xe9
+# UVM_INFO apb_scoreboard.sv(43) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0xa Data=0xe9, transfer = 1
 # UVM_INFO apb_scoreboard.sv(45) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(46) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(47) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # DRIVER : W_ADDR = 003, R_ADDR = 1e9, READ_WRITE = 0
 # mem stored = 0x9 at 0x3
-# UVM_INFO apb_scoreboard.sv(39) @ 165: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x3 Data=0x9
+# UVM_INFO apb_scoreboard.sv(39) @ 165: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x3 Data=0x9, transfer = 1
 # DRIVER : W_ADDR = 0d9, R_ADDR = 003, READ_WRITE = 1
-# UVM_INFO apb_scoreboard.sv(43) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x3 Data=0x9
+# UVM_INFO apb_scoreboard.sv(43) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x3 Data=0x9, transfer = 1
 # UVM_INFO apb_scoreboard.sv(45) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(46) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(47) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # DRIVER : W_ADDR = 003, R_ADDR = 044, READ_WRITE = 0
 # mem stored = 0x24 at 0x3
-# UVM_INFO apb_scoreboard.sv(39) @ 225: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x3 Data=0x24
+# UVM_INFO apb_scoreboard.sv(39) @ 225: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x3 Data=0x24, transfer = 1
 # DRIVER : W_ADDR = 1f6, R_ADDR = 003, READ_WRITE = 1
-# UVM_INFO apb_scoreboard.sv(43) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x3 Data=0x24
+# UVM_INFO apb_scoreboard.sv(43) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x3 Data=0x24, transfer = 1
 # UVM_INFO apb_scoreboard.sv(45) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(46) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(47) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # DRIVER : W_ADDR = 006, R_ADDR = 1a6, READ_WRITE = 0
 # mem stored = 0x2b at 0x6
-# UVM_INFO apb_scoreboard.sv(39) @ 285: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x6 Data=0x2b
+# UVM_INFO apb_scoreboard.sv(39) @ 285: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x6 Data=0x2b, transfer = 1
 # DRIVER : W_ADDR = 128, R_ADDR = 006, READ_WRITE = 1
-# UVM_INFO apb_scoreboard.sv(43) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x6 Data=0x2b
+# UVM_INFO apb_scoreboard.sv(43) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x6 Data=0x2b, transfer = 1
 # UVM_INFO apb_scoreboard.sv(45) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(46) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(47) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # DRIVER : W_ADDR = 000, R_ADDR = 0e2, READ_WRITE = 0
 # mem stored = 0x9b at 0x0
-# UVM_INFO apb_scoreboard.sv(39) @ 345: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x0 Data=0x9b
+# UVM_INFO apb_scoreboard.sv(39) @ 345: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x0 Data=0x9b, transfer = 1
 # DRIVER : W_ADDR = 02e, R_ADDR = 000, READ_WRITE = 1
-# UVM_INFO apb_scoreboard.sv(43) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x0 Data=0x9b
+# UVM_INFO apb_scoreboard.sv(43) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x0 Data=0x9b, transfer = 1
 # UVM_INFO apb_scoreboard.sv(45) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(46) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(47) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # DRIVER : W_ADDR = 006, R_ADDR = 05a, READ_WRITE = 0
 # mem stored = 0x9f at 0x6
-# UVM_INFO apb_scoreboard.sv(39) @ 405: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x6 Data=0x9f
+# UVM_INFO apb_scoreboard.sv(39) @ 405: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x6 Data=0x9f, transfer = 1
 # DRIVER : W_ADDR = 1f1, R_ADDR = 006, READ_WRITE = 1
-# UVM_INFO apb_scoreboard.sv(43) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x6 Data=0x9f
+# UVM_INFO apb_scoreboard.sv(43) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x6 Data=0x9f, transfer = 1
 # UVM_INFO apb_scoreboard.sv(45) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(46) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(47) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # DRIVER : W_ADDR = 00a, R_ADDR = 037, READ_WRITE = 0
 # mem stored = 0x8b at 0xa
-# UVM_INFO apb_scoreboard.sv(39) @ 465: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0xa Data=0x8b
+# UVM_INFO apb_scoreboard.sv(39) @ 465: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0xa Data=0x8b, transfer = 1
 # DRIVER : W_ADDR = 10c, R_ADDR = 00a, READ_WRITE = 1
-# UVM_INFO apb_scoreboard.sv(43) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0xa Data=0x8b
+# UVM_INFO apb_scoreboard.sv(43) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0xa Data=0x8b, transfer = 1
 # UVM_INFO apb_scoreboard.sv(45) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(46) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(47) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 505: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# UVM_INFO apb_subscriber.sv(53) @ 505: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [input] Coverage ------> 19.08%,
-# UVM_INFO apb_subscriber.sv(54) @ 505: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [output] Coverage ------> 26.56%
-# Passes = 8 | Fails = 0
+# DRIVER : W_ADDR = 008, R_ADDR = 041, READ_WRITE = 0
+# mem stored = 0x3a at 0x8
+# UVM_INFO apb_scoreboard.sv(39) @ 525: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x8 Data=0x3a, transfer = 1
+# DRIVER : W_ADDR = 0a9, R_ADDR = 008, READ_WRITE = 1
+# UVM_INFO apb_scoreboard.sv(43) @ 555: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x8 Data=0x3a, transfer = 1
+# UVM_INFO apb_scoreboard.sv(45) @ 555: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(46) @ 555: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(47) @ 555: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# DRIVER : W_ADDR = 006, R_ADDR = 17e, READ_WRITE = 0
+# mem stored = 0xad at 0x6
+# UVM_INFO apb_scoreboard.sv(39) @ 585: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x6 Data=0xad, transfer = 1
+# DRIVER : W_ADDR = 161, R_ADDR = 006, READ_WRITE = 1
+# UVM_INFO apb_scoreboard.sv(43) @ 615: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x6 Data=0xad, transfer = 1
+# UVM_INFO apb_scoreboard.sv(45) @ 615: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(46) @ 615: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(47) @ 615: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 625: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO apb_subscriber.sv(53) @ 625: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [input] Coverage ------> 36.39%,
+# UVM_INFO apb_subscriber.sv(54) @ 625: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [output] Coverage ------> 26.95%
+# Passes = 10 | Fails = 0
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   48
+# UVM_INFO :   58
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
@@ -156,12 +172,12 @@
 # [ENV]     1
 # [Questa UVM]     2
 # [RNTST]     1
-# [SCOREBOARD]    16
+# [SCOREBOARD]    20
 # [TEST_DONE]     1
 # [UVMTOP]     1
 # [apb_coverage]     2
-# [apb_scoreboard]    24
+# [apb_scoreboard]    30
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 505 ns  Iteration: 70  Instance: /top
-# End time: 11:54:31 on Sep 22,2025, Elapsed time: 0:00:07
+#    Time: 625 ns  Iteration: 70  Instance: /top
+# End time: 12:32:16 on Sep 22,2025, Elapsed time: 0:00:05
 # Errors: 0, Warnings: 0
