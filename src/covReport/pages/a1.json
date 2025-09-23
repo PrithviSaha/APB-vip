@@ -1,8 +1,7 @@
 var g_data = {
 a6:{
 scopes:[{link:'z.htm?f=0&s=6',val:'work.apb_assertions'}]
-,assertions:[{dummy:0},{cr:'c',c:'g',z:'APB_PRESETn',fc:'Gr',pc:'Gr',h0:'0',h1:'18001',h2:'18003',h3:'0',h4:'0',h5:'2',h6:'3'}
-,{cr:'c',c:'g',z:'unknown_value_check_1',fc:'Gr',pc:'Gr',h0:'0',h1:'18002',h2:'18003',h3:'0',h4:'0',h5:'1',h6:'2'}
+,assertions:[{dummy:0},{cr:'c',c:'g',z:'unknown_value_check_1',fc:'Gr',pc:'Gr',h0:'0',h1:'18002',h2:'18003',h3:'0',h4:'0',h5:'1',h6:'2'}
 ,{cr:'c',c:'g',z:'unknown_value_check_2',fc:'Gr',pc:'Gr',h0:'0',h1:'17999',h2:'18003',h3:'3',h4:'0',h5:'1',h6:'2'}
 ,{cr:'m',c:'F',z:'stablity_of_global_signals',fc:'Rr',pc:'Gr',h0:'3799',h1:'14199',h2:'18003',h3:'2',h4:'1',h5:'2',h6:'3'}
 ,{cr:'c',c:'g',z:'data_out_check',fc:'Gr',pc:'Gr',h0:'0',h1:'8999',h2:'18003',h3:'9002',h4:'1',h5:'1',h6:'2'}
@@ -10,8 +9,7 @@ scopes:[{link:'z.htm?f=0&s=6',val:'work.apb_assertions'}]
 },
 a59:{
 scopes:[{s:'12',b:'0',val:'top'},{s:'15',b:'0',val:'vif'},{link:'z.htm?f=0&s=59',val:'ASSERT'}]
-,assertions:[{dummy:0},{cr:'c',c:'g',z:'APB_PRESETn',fc:'Gr',pc:'Gr',h0:'0',h1:'18001',h2:'18003',h3:'0',h4:'0',h5:'2',h6:'3'}
-,{cr:'c',c:'g',z:'unknown_value_check_1',fc:'Gr',pc:'Gr',h0:'0',h1:'18002',h2:'18003',h3:'0',h4:'0',h5:'1',h6:'2'}
+,assertions:[{dummy:0},{cr:'c',c:'g',z:'unknown_value_check_1',fc:'Gr',pc:'Gr',h0:'0',h1:'18002',h2:'18003',h3:'0',h4:'0',h5:'1',h6:'2'}
 ,{cr:'c',c:'g',z:'unknown_value_check_2',fc:'Gr',pc:'Gr',h0:'0',h1:'17999',h2:'18003',h3:'3',h4:'0',h5:'1',h6:'2'}
 ,{cr:'m',c:'F',z:'stablity_of_global_signals',fc:'Rr',pc:'Gr',h0:'3799',h1:'14199',h2:'18003',h3:'2',h4:'1',h5:'2',h6:'3'}
 ,{cr:'c',c:'g',z:'data_out_check',fc:'Gr',pc:'Gr',h0:'0',h1:'8999',h2:'18003',h3:'9002',h4:'1',h5:'1',h6:'2'}

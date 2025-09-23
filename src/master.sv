@@ -35,8 +35,11 @@
   always @(state,transfer,PREADY)
 
   begin
-	if(!PRESETn)
+	if(!PRESETn) begin
 	  next_state = IDLE;
+	  //PSLVERR = 0;
+	  apb_read_data_out = 0;
+	end
 	else
           begin
              PWRITE = ~READ_WRITE;
