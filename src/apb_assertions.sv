@@ -1,6 +1,6 @@
 interface apb_assertions(
 	PCLK,
-	PRESETn,       
+	PRESETn,
 	transfer,
 	READ_WRITE,
 	apb_write_paddr,
@@ -11,7 +11,7 @@ interface apb_assertions(
 );
 
 	input PCLK,
-	PRESETn,       
+	PRESETn,
 	transfer,
 	READ_WRITE,
 	apb_write_paddr,
@@ -20,10 +20,10 @@ interface apb_assertions(
 	PSLVERR,
 	apb_read_data_out;
 
-
+	APB_PRESETn: assert property(@(posedge PCLK) ##2 PRESETn) else $info("reset is applied");
 	property p1;
 		@(posedge PCLK)
-			!($isunknown(PRESETn) && $isunknown(transfer));
+		##1     !($isunknown(PRESETn) && $isunknown(transfer));
 	endproperty
 
 	unknown_value_check_1:
@@ -31,40 +31,48 @@ interface apb_assertions(
 	$info("All global signals are valid - Assertion 1 passed");
 	else
 		$error("Assertion 1 failed - signals have unknown value");
-
+	
 	property p2;
 		@(posedge PCLK)
 		transfer |-> !($isunknown(READ_WRITE) && $isunknown(apb_read_paddr) && $isunknown(apb_write_paddr) && $isunknown(apb_write_data))[*2];
 	endproperty
 
-	unknown_value_check_2:
-	assert property(p2)
-	$info("All signals are valid - Assertion 2 passed");
-	else
-		$error("Assertion 1 failed - signals have unknown value");
+		unknown_value_check_2:
+		assert property(p2)
+		$info("All signals are valid - Assertion 2 passed");
+		else
+			$error("Assertion 1 failed - signals have unknown value");
 
-	property p3;
+		property p3;
 		@(posedge PCLK) disable iff(!PRESETn)
-		transfer |=> ( $stable(READ_WRITE) && $stable(transfer));  
-	endproperty
+		( transfer && ( READ_WRITE == 0 || READ_WRITE == 1) |=>
+		##1 (
+		READ_WRITE == 0 &&
+		apb_write_paddr == $past(apb_write_paddr,1) &&
+		apb_write_data  == $past(apb_write_data, 1)
+																						 )
+		||
+		(
+		READ_WRITE == 1 &&
+		apb_read_paddr  == $past(apb_read_paddr, 1)
+																						 )
+													);
+		endproperty
 
-	stablity_of_global_signals:
-	assert property(p3)
-	$info("The global signals are stable for 2 cycles- Assertion 3 passed");
-	else
-		$error("Assertion 3 failed -global signals are not stble");
-
-	property p4;
+		stablity_of_global_signals:
+		assert property(p3)
+		$info("The global signals are stable for 2 cycles- Assertion 3 passed");
+		else
+			$error("Assertion 3 failed -global signals are not stble");
+		property p4;
 		@(posedge PCLK) disable iff(!PRESETn)
-		transfer |-> (READ_WRITE==0) |=> ##1 !($isunknown(apb_read_data_out));
-	endproperty
+		( transfer && ( READ_WRITE == 1 )  ) |=>  ($stable(apb_read_data_out) ) ;
+		endproperty
 
-	data_out_check:
-	assert property(p4)
-	$info("Data out is not unknown - Assertion 4 passed");
-	else
-		$error("Assertion 4 failed - data out is unknown during read operation");
-
-
+		data_out_check:
+		assert property(p4)
+		$info("Data out is not unknown - Assertion 4 passed");
+		else
+			$error("Assertion 4 failed - data out is unknown during read operation");
+	
 endinterface
-
