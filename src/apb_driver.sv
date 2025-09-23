@@ -30,7 +30,7 @@ class apb_driver extends uvm_driver #(apb_sequence_item);
   task drive();
     if (vif.PRESETn) begin
       send_to_interface();
-      $display("DRIVER : W_ADDR = %h, R_ADDR = %h, READ_WRITE = %0b", req.apb_write_paddr, req.apb_read_paddr, req.READ_WRITE);
+//      $display("DRIVER : W_ADDR = %h, R_ADDR = %h, READ_WRITE = %0b", req.apb_write_paddr, req.apb_read_paddr, req.READ_WRITE);
       repeat(3) @(posedge vif.drv_cb);
     end
   endtask

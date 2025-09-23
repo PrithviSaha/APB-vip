@@ -34,7 +34,7 @@ class apb_scoreboard extends uvm_scoreboard;
   task compare(apb_sequence_item inp_item, apb_sequence_item out_item);
     if(inp_item.READ_WRITE == 0) begin
       mem[inp_item.apb_write_paddr] = inp_item.apb_write_data;
-      $display("mem stored = 0x%0h at 0x%0h", mem[inp_item.apb_write_paddr], inp_item.apb_write_paddr);
+//      $display("mem stored = 0x%0h at 0x%0h", mem[inp_item.apb_write_paddr], inp_item.apb_write_paddr);
       `uvm_info("SCOREBOARD", $sformatf("WRITE: Addr=0x%0h Data=0x%0h, transfer = %b",
         inp_item.apb_write_paddr, inp_item.apb_write_data, inp_item.transfer), UVM_MEDIUM); 
     end
