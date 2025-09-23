@@ -9,19 +9,25 @@ class apb_coverage extends uvm_component;
   real ip_mon_cov, out_mon_cov;
   
   covergroup active_mon_cov;   
-    TRANSFER : coverpoint ip_mon_trans.transfer{ bins transfer_bin  = {0,1}; }
-    READ_WRITE: coverpoint ip_mon_trans.READ_WRITE{ bins read_write_bin[]  = {0,1}; }
+    TRANSFER : coverpoint ip_mon_trans.transfer{ bins transfer_bin[] = {0,1}; }
+    READ_WRITE: coverpoint ip_mon_trans.READ_WRITE{ bins read_write_bin[] = {0,1}; }
     WRITE_ADDRESS: coverpoint ip_mon_trans.apb_write_paddr {
-      bins w_low  = {[0:84]};
-      bins w_mid  = {[85:169]};
-      bins w_high = {[170:255]};
-    }    
+      bins w_low1  = {[0:84]}    iff(ip_mon_trans.apb_write_paddr[8]==0);
+			bins w_mid1  = {[85:169]}  iff(ip_mon_trans.apb_write_paddr[8]==0);
+      bins w_high1 = {[170:255]} iff(ip_mon_trans.apb_write_paddr[8]==0);
+      bins w_low2  = {[255:339]} iff(ip_mon_trans.apb_write_paddr[8]==1);
+			bins w_mid2  = {[340:424]} iff(ip_mon_trans.apb_write_paddr[8]==1);
+      bins w_high2 = {[425:511]} iff(ip_mon_trans.apb_write_paddr[8]==1);	
+		}    
     READ_ADDRESS: coverpoint ip_mon_trans.apb_read_paddr { 
-	bins r_low = {[0:84]}; 
-	bins r_mid = {[85:169]};
-	bins r_high = {[170:255]};
-    }
-    WRITE_DATA : coverpoint ip_mon_trans.apb_write_data{ bins write_data_bin[]  = {[0:127]}; }
+			bins r_low1 = {[0:84]}      iff(ip_mon_trans.apb_read_paddr[8]==0); 
+	    bins r_mid1 = {[85:169]}    iff(ip_mon_trans.apb_read_paddr[8]==0); 
+     	bins r_high1 = {[170:255]}  iff(ip_mon_trans.apb_read_paddr[8]==0); 
+    	bins r_low2 = {[255:339]}   iff(ip_mon_trans.apb_read_paddr[8]==1); 
+	    bins r_mid2 = {[340:424]}   iff(ip_mon_trans.apb_read_paddr[8]==1); 
+     	bins r_high2 = {[425:511]}  iff(ip_mon_trans.apb_read_paddr[8]==1); 
+		}
+    WRITE_DATA : coverpoint ip_mon_trans.apb_write_data{ bins write_data_bin[]  = {[0:255]}; }
     
     TRANSFER_X_READ_WRITE : cross TRANSFER , READ_WRITE;
     

@@ -24,14 +24,14 @@ class apb_sequence_item extends uvm_sequence_item;
     `uvm_field_int( PSLVERR ,           UVM_ALL_ON )
   `uvm_object_utils_end
 
-  constraint addr_msb_dist { 
-    apb_write_paddr[`ADDR_WIDTH] dist { 0 := 9, 1 := 1 };
+//  constraint addr_msb_dist { 
+//    apb_write_paddr[`ADDR_WIDTH] dist { 0 := 9, 1 := 1 };
     //apb_write_paddr[7:4] == 0;
-  }
+//  }
 
-  constraint trnsfr_dist {
-    transfer dist { 0 := 1, 1 := 9 };
-  }
+//  constraint trnsfr_dist {
+//    transfer dist { 0 := 1, 1 := 9 };
+//  }
 
   function new(string name = "apb_sequence_item");
     super.new(name);
