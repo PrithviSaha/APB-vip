@@ -65,8 +65,8 @@ class wr_seq extends uvm_sequence #(apb_sequence_item);
   
   virtual task body();
     repeat (`N) begin
-      `uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1;
-	req.apb_write_paddr inside {[0:11]};})
+      `uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1; } )
+//	req.apb_write_paddr inside {[0:11]};})
       //req.apb_write_paddr.rand_mode(0);
       read_addr = req.apb_write_paddr;
       //t = req.transfer;

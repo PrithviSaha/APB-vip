@@ -9,10 +9,18 @@ class apb_coverage extends uvm_component;
   real ip_mon_cov, out_mon_cov;
   
   covergroup active_mon_cov;   
-    TRANSFER : coverpoint ip_mon_trans.transfer{ bins transfer_bin[]  = {0,1}; }
+    TRANSFER : coverpoint ip_mon_trans.transfer{ bins transfer_bin  = {0,1}; }
     READ_WRITE: coverpoint ip_mon_trans.READ_WRITE{ bins read_write_bin[]  = {0,1}; }
-    WRITE_ADDRESS: coverpoint ip_mon_trans.apb_write_paddr{ bins write_address_bin[]  = {[0:255]}; }
-    READ_ADDRESS: coverpoint ip_mon_trans.apb_read_paddr{ bins read_address_bin[]  = {[0:255]}; }
+    WRITE_ADDRESS: coverpoint ip_mon_trans.apb_write_paddr {
+      bins w_low  = {[0:84]};
+      bins w_mid  = {[85:169]};
+      bins w_high = {[170:255]};
+    }    
+    READ_ADDRESS: coverpoint ip_mon_trans.apb_read_paddr { 
+	bins r_low = {[0:84]}; 
+	bins r_mid = {[85:169]};
+	bins r_high = {[170:255]};
+    }
     WRITE_DATA : coverpoint ip_mon_trans.apb_write_data{ bins write_data_bin[]  = {[0:127]}; }
     
     TRANSFER_X_READ_WRITE : cross TRANSFER , READ_WRITE;

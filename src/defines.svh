@@ -1,3 +1,3 @@
 `define ADDR_WIDTH 8
 `define DATA_WIDTH 8
-`define N	   10000
+`define N	   3000

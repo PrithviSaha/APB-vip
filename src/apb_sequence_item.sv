@@ -11,11 +11,7 @@ class apb_sequence_item extends uvm_sequence_item;
   rand logic [`ADDR_WIDTH:0] apb_read_paddr;
   rand logic [`DATA_WIDTH-1:0] apb_write_data;
   rand logic READ_WRITE;
-/*
-  `uvm_object_utils_begin(apb_sequence_item)
-  `uvm_field_int(apb_write_paddr, UVM_ALL_ON)
-  `uvm_object_utils_end
-*/
+
   logic [`DATA_WIDTH-1:0] apb_read_data_out;
   logic PSLVERR;
 
@@ -28,9 +24,11 @@ class apb_sequence_item extends uvm_sequence_item;
     `uvm_field_int( PSLVERR ,           UVM_ALL_ON )
   `uvm_object_utils_end
 
-  //logic [`DATA_WIDTH-1:0] apb_read_data_out;
-  //logic PSLVERR;
-  
+  constraint addr_msb_dist { 
+    apb_write_paddr[`ADDR_WIDTH] dist { 0 := 9, 1 := 1 };
+    //apb_write_paddr[7:4] == 0;
+  }
+
   constraint trnsfr_dist {
     transfer dist { 0 := 1, 1 := 9 };
   }
