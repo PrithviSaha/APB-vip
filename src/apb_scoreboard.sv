@@ -7,6 +7,7 @@ class apb_scoreboard extends uvm_scoreboard;
   
   logic [7:0] mem [0:511];
   int PASS, FAIL;
+	logic [7:0] prev_data;
   apb_sequence_item inp_q[$];	//input item queue
   apb_sequence_item out_q[$];	//output item queue
   
@@ -32,6 +33,7 @@ class apb_scoreboard extends uvm_scoreboard;
   endfunction
   
   task compare(apb_sequence_item inp_item, apb_sequence_item out_item);
+		if(inp_item.transfer) begin
     if(inp_item.READ_WRITE == 0) begin
       mem[inp_item.apb_write_paddr] = inp_item.apb_write_data;
 //      $display("mem stored = 0x%0h at 0x%0h", mem[inp_item.apb_write_paddr], inp_item.apb_write_paddr);
@@ -39,6 +41,7 @@ class apb_scoreboard extends uvm_scoreboard;
         inp_item.apb_write_paddr, inp_item.apb_write_data, inp_item.transfer), UVM_MEDIUM); 
     end
     else begin
+			 prev_data = out_item.apb_read_data_out;
       `uvm_info("SCOREBOARD", $sformatf("READ: Addr=0x%0h Data=0x%0h, transfer = %b",
         inp_item.apb_read_paddr, out_item.apb_read_data_out, inp_item.transfer), UVM_MEDIUM);
       if(out_item.apb_read_data_out == mem[inp_item.apb_read_paddr]) begin
@@ -53,6 +56,25 @@ class apb_scoreboard extends uvm_scoreboard;
         `uvm_info(get_type_name(), "---------------------------------------", UVM_NONE)
         FAIL++;
       end
+    end
+	  end
+		else begin
+			if(inp_item.READ_WRITE == 1) begin
+        `uvm_info("SCOREBOARD", $sformatf("READ: Addr=0x%0h Data=0x%0h, transfer = %b",
+         inp_item.apb_read_paddr,prev_data, inp_item.transfer), UVM_MEDIUM);
+      if(out_item.apb_read_data_out == prev_data) begin
+        `uvm_info(get_type_name(), "---------------------------------------", UVM_NONE)
+        `uvm_info(get_type_name(), "----           TEST PASS           ----", UVM_NONE)
+        `uvm_info(get_type_name(), "---------------------------------------", UVM_NONE)
+        PASS++;
+      end
+      else begin
+        `uvm_info(get_type_name(), "---------------------------------------", UVM_NONE)
+        `uvm_info(get_type_name(), "----           TEST FAIL           ----", UVM_NONE)
+        `uvm_info(get_type_name(), "---------------------------------------", UVM_NONE)
+        FAIL++;
+      end
+			end
     end
   endtask
   
