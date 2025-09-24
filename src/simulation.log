@@ -1,5 +1,5 @@
 # vsim -vopt work.top -voptargs="+acc=npr" -assertdebug -l simulation.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; run -all; exit" 
-# Start time: 12:37:56 on Sep 24,2025
+# Start time: 14:26:18 on Sep 24,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vopt-143) Recognized 1 FSM in module "master_bridge(fast)".
 # ** Warning: apb_top.sv(49): (vopt-2685) [TFMPC] - Too few port connections for 'ASSERT'.  Expected 9, found 8.
@@ -141233,5 +141233,5 @@
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 180265 ns  Iteration: 70  Instance: /top
 # Saving coverage database on exit...
-# End time: 12:38:11 on Sep 24,2025, Elapsed time: 0:00:15
+# End time: 14:26:33 on Sep 24,2025, Elapsed time: 0:00:15
 # Errors: 3730, Warnings: 5

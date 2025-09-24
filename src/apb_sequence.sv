@@ -78,6 +78,9 @@ class wr_seq_slave1 extends uvm_sequence #(apb_sequence_item);
   endtask
 endclass
 
+
+/////////////////////////////////////////////////////////////////
+
 //slave 2  selection
 
 class wr_seq_slave2 extends uvm_sequence #(apb_sequence_item);
@@ -103,6 +106,9 @@ class wr_seq_slave2 extends uvm_sequence #(apb_sequence_item);
     end
   endtask
 endclass
+
+
+/////////////////////////////////////////////////////////////////
 
 class mid_break_transfer extends uvm_sequence #(apb_sequence_item);
   
@@ -145,6 +151,8 @@ class mid_break_transfer extends uvm_sequence #(apb_sequence_item);
   endtask
 endclass
 
+
+/////////////////////////////////////////////////////////////////
 
 // transfer = 0 case for read and write transfer
 class no_transfer extends uvm_sequence #(apb_sequence_item);
