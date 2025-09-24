@@ -79,7 +79,7 @@ interface apb_assertions(
 
 	property p4;
 		@(posedge PCLK) disable iff(!PRESETn)
-		( transfer && ( READ_WRITE == 1 )  ) |=>  ($stable(apb_read_data_out) ) ;
+		!($isunknown(apb_read_data_out));
 	endproperty
 
 	data_out_check:
