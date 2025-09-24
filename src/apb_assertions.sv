@@ -28,11 +28,11 @@ interface apb_assertions(
   	else begin
     		$error("RESET failed");
  	end
-
-	APB_PRESETn: assert property(@(posedge PCLK) ##2 PRESETn) 
+*/
+	APB_deassert_PRESETn: assert property(@(posedge PCLK) ##2 PRESETn) 
 		     else 
 			$info("reset is applied");
-*/
+
 	property p1;
 		@(posedge PCLK)
 		##1 !($isunknown(PRESETn) && $isunknown(transfer));
