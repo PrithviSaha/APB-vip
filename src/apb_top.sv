@@ -3,7 +3,7 @@
 `include "apb_package.sv"
 `include "apb_if.sv"
 `include "apb_assertions.sv"
-`include "apb_design.sv"
+`include "apb_design.v"
 module top;
   import uvm_pkg::*;
   import apb_package::*;

@@ -1,6 +1,6 @@
 apb_active_agent.sv
 apb_assertions.sv
-apb_design.sv
+apb_design.v
 apb_driver.sv
 apb_environment.sv
 apb_if.sv
@@ -15,6 +15,6 @@ apb_sequencer.sv
 apb_subscriber.sv
 apb_test.sv
 apb_top.sv
-master.sv
-slave1.sv
-slave2.sv
+master.v
+slave1.v
+slave2.v
