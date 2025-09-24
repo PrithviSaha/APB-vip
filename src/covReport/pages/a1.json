@@ -5,7 +5,7 @@ scopes:[{link:'z.htm?f=0&s=6',val:'work.apb_assertions'}]
 ,{cr:'c',c:'g',z:'unknown_value_check_1',fc:'Gr',pc:'Gr',h0:'0',h1:'50',h2:'51',h3:'0',h4:'0',h5:'1',h6:'2'}
 ,{cr:'c',c:'g',z:'unknown_value_check_2',fc:'Gr',pc:'Gr',h0:'0',h1:'35',h2:'51',h3:'15',h4:'0',h5:'1',h6:'2'}
 ,{cr:'m',c:'F',z:'stablity_of_global_signals',fc:'Rr',pc:'Gr',h0:'5',h1:'29',h2:'51',h3:'14',h4:'1',h5:'2',h6:'3'}
-,{cr:'m',c:'F',z:'data_out_check',fc:'Rr',pc:'Rr',h0:'49',h1:'0',h2:'51',h3:'0',h4:'1',h5:'1',h6:'2'}
+,{cr:'c',c:'g',z:'data_out_check',fc:'Gr',pc:'Gr',h0:'0',h1:'16',h2:'51',h3:'32',h4:'1',h5:'2',h6:'3'}
 ],
 },
 a59:{
@@ -14,7 +14,7 @@ scopes:[{s:'12',b:'0',val:'top'},{s:'15',b:'0',val:'vif'},{link:'z.htm?f=0&s=59'
 ,{cr:'c',c:'g',z:'unknown_value_check_1',fc:'Gr',pc:'Gr',h0:'0',h1:'50',h2:'51',h3:'0',h4:'0',h5:'1',h6:'2'}
 ,{cr:'c',c:'g',z:'unknown_value_check_2',fc:'Gr',pc:'Gr',h0:'0',h1:'35',h2:'51',h3:'15',h4:'0',h5:'1',h6:'2'}
 ,{cr:'m',c:'F',z:'stablity_of_global_signals',fc:'Rr',pc:'Gr',h0:'5',h1:'29',h2:'51',h3:'14',h4:'1',h5:'2',h6:'3'}
-,{cr:'m',c:'F',z:'data_out_check',fc:'Rr',pc:'Rr',h0:'49',h1:'0',h2:'51',h3:'0',h4:'1',h5:'1',h6:'2'}
+,{cr:'c',c:'g',z:'data_out_check',fc:'Gr',pc:'Gr',h0:'0',h1:'16',h2:'51',h3:'32',h4:'1',h5:'2',h6:'3'}
 ],
 },
 dummyEnd:0

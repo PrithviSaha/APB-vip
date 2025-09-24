@@ -25,7 +25,7 @@ class apb_sequence_item extends uvm_sequence_item;
   `uvm_object_utils_end
 
 //  constraint addr_msb_dist { 
-//    apb_write_paddr[`ADDR_WIDTH] dist { 0 := 9, 1 := 1 };
+//    apb_write_paddr inside { [ 0 : 511] };
     //apb_write_paddr[7:4] == 0;
 //  }
 

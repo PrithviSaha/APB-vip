@@ -1,5 +1,5 @@
 # vsim -vopt work.top -voptargs="+acc=npr" -assertdebug -l simulation.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; run -all; exit" 
-# Start time: 21:56:30 on Sep 24,2025
+# Start time: 00:30:03 on Sep 25,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vopt-143) Recognized 1 FSM in module "master_bridge(fast)".
 # ** Warning: apb_top.sv(49): (vopt-2685) [TFMPC] - Too few port connections for 'ASSERT'.  Expected 9, found 8.
@@ -93,44 +93,320 @@
 #       out_mon_port               uvm_analysis_imp_out_mon_scb  -     @506 
 # --------------------------------------------------------------------------
 # 
+# 
+# <-------------------------------------------- SLAVE 1 SELECTED ------------------------------------------------->
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 15 ns Started: 5 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 25 ns Started: 15 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 35 ns Started: 25 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(41) @ 45: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x91 Data=0x14, transfer = 1
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 45 ns Started: 35 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 45 ns Started: 35 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 55 ns Started: 35 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 55 ns Started: 45 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 55 ns Started: 45 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 65 ns Started: 45 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 65 ns Started: 55 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 65 ns Started: 55 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(46) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x91 Data=0xx, transfer = 1
 # UVM_INFO apb_scoreboard.sv(54) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(55) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
 # UVM_INFO apb_scoreboard.sv(56) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 75 ns Started: 55 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 75 ns Started: 65 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 75 ns Started: 65 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# 
+# <-------------------------------------------- SLAVE 1 SELECTED ------------------------------------------------->
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 85 ns Started: 65 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 85 ns Started: 65 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 85 ns Started: 75 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 85 ns Started: 75 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 95 ns Started: 75 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Error: Assertion 3 failed -global signals are not stble
+#    Time: 95 ns Started: 75 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 79 Expr: READ_WRITE==1
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 95 ns Started: 85 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 95 ns Started: 85 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(41) @ 105: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0xdd Data=0xe9, transfer = 1
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 105 ns Started: 85 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 105 ns Started: 85 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 105 ns Started: 95 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 105 ns Started: 95 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 115 ns Started: 95 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 115 ns Started: 105 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 115 ns Started: 105 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 125 ns Started: 105 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 125 ns Started: 115 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 125 ns Started: 115 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(46) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0xdd Data=0xx, transfer = 1
 # UVM_INFO apb_scoreboard.sv(54) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(55) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
 # UVM_INFO apb_scoreboard.sv(56) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 135 ns Started: 115 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 135 ns Started: 125 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 135 ns Started: 125 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# 
+# <---------------------------------------------SLAVE 2 IS SELCECTED---------------------------------------------->
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 145 ns Started: 125 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 145 ns Started: 125 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 145 ns Started: 135 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 145 ns Started: 135 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 155 ns Started: 135 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Error: Assertion 3 failed -global signals are not stble
+#    Time: 155 ns Started: 135 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 79 Expr: READ_WRITE==1
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 155 ns Started: 145 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 155 ns Started: 145 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(41) @ 165: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x181 Data=0xb3, transfer = 1
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 165 ns Started: 145 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 165 ns Started: 145 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 165 ns Started: 155 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 165 ns Started: 155 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 175 ns Started: 155 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 175 ns Started: 165 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 175 ns Started: 165 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Error: Assertion 3 failed -global signals are not stble
+#    Time: 185 ns Started: 165 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 79 Expr: apb_read_paddr==$past(apb_read_paddr,1)
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 185 ns Started: 175 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 185 ns Started: 175 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(46) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x181 Data=0xx, transfer = 1
 # UVM_INFO apb_scoreboard.sv(54) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(55) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
 # UVM_INFO apb_scoreboard.sv(56) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 195 ns Started: 175 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 195 ns Started: 185 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 195 ns Started: 185 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# 
+# <---------------------------------------------SLAVE 2 IS SELCECTED---------------------------------------------->
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 205 ns Started: 185 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 205 ns Started: 185 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 205 ns Started: 195 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 205 ns Started: 195 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 215 ns Started: 195 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 215 ns Started: 195 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 215 ns Started: 205 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 215 ns Started: 205 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(41) @ 225: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x1e8 Data=0x56, transfer = 1
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 225 ns Started: 205 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 225 ns Started: 205 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 225 ns Started: 215 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 225 ns Started: 215 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 235 ns Started: 215 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 235 ns Started: 225 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 235 ns Started: 225 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 245 ns Started: 225 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 245 ns Started: 235 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 245 ns Started: 235 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(46) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1e8 Data=0xx, transfer = 1
 # UVM_INFO apb_scoreboard.sv(54) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(55) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
 # UVM_INFO apb_scoreboard.sv(56) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 255 ns Started: 235 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 255 ns Started: 245 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 255 ns Started: 245 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# 
+# <--------------------------------------------------TRANSFER = 0 STARTED-------------------------------------------> 
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 265 ns Started: 245 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 265 ns Started: 245 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 265 ns Started: 255 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 265 ns Started: 255 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Error: Assertion 3 failed -global signals are not stble
+#    Time: 275 ns Started: 255 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 79 Expr: READ_WRITE==1
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 275 ns Started: 255 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 275 ns Started: 265 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 275 ns Started: 265 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 285 ns Started: 265 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 285 ns Started: 265 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 285 ns Started: 275 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 295 ns Started: 285 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 305 ns Started: 295 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(64) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1c9 Data=0xx, transfer = 0
 # UVM_INFO apb_scoreboard.sv(72) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(73) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
 # UVM_INFO apb_scoreboard.sv(74) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 315 ns Started: 305 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# <--------------------------------------------------TRANSFER = 0 ENDED--------------------------------------------->
+# 
+# <-------------------------------------------------MID TRANSFER STARTED-------------------------------------------->
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 325 ns Started: 315 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 335 ns Started: 325 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(41) @ 345: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x4 Data=0xb0, transfer = 1
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 345 ns Started: 335 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 345 ns Started: 335 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 355 ns Started: 335 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 355 ns Started: 345 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 355 ns Started: 345 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 365 ns Started: 345 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 365 ns Started: 355 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 365 ns Started: 355 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(46) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x4 Data=0xb0, transfer = 1
 # UVM_INFO apb_scoreboard.sv(48) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(49) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(50) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 375 ns Started: 355 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 375 ns Started: 365 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 375 ns Started: 365 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 385 ns Started: 365 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 385 ns Started: 365 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 385 ns Started: 375 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 385 ns Started: 375 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 395 ns Started: 375 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 395 ns Started: 375 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 395 ns Started: 385 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 395 ns Started: 385 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 405 ns Started: 385 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: Data out is not unknown - Assertion 4 passed
+#    Time: 405 ns Started: 385 ns  Scope: top.vif.ASSERT.data_out_check File: apb_assertions.sv Line: 88
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 405 ns Started: 395 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 415 ns Started: 405 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 425 ns Started: 415 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(64) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1 Data=0xb0, transfer = 0
 # UVM_INFO apb_scoreboard.sv(66) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(67) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(68) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 435 ns Started: 425 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 445 ns Started: 435 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 455 ns Started: 445 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(41) @ 465: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x5 Data=0x31, transfer = 1
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 465 ns Started: 455 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 465 ns Started: 455 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 475 ns Started: 455 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 475 ns Started: 465 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 475 ns Started: 465 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# ** Error: Assertion 3 failed -global signals are not stble
+#    Time: 485 ns Started: 465 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 79 Expr: apb_read_paddr==$past(apb_read_paddr,1)
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 485 ns Started: 475 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 485 ns Started: 475 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
 # UVM_INFO apb_scoreboard.sv(46) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x5 Data=0x31, transfer = 1
 # UVM_INFO apb_scoreboard.sv(48) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(49) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
 # UVM_INFO apb_scoreboard.sv(50) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# ** Info: The global signals are stable for 2 cycles- Assertion 3 passed
+#    Time: 495 ns Started: 475 ns  Scope: top.vif.ASSERT.stablity_of_global_signals File: apb_assertions.sv Line: 77
+# ** Info: All signals are valid - Assertion 2 passed
+#    Time: 495 ns Started: 485 ns  Scope: top.vif.ASSERT.unknown_value_check_2 File: apb_assertions.sv Line: 55
+# ** Info: All global signals are valid - Assertion 1 passed
+#    Time: 495 ns Started: 485 ns  Scope: top.vif.ASSERT.unknown_value_check_1 File: apb_assertions.sv Line: 44
+# <----------------------------------------------------MID TRANSFER ENDED--------------------------------------------->
 # UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 505: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # UVM_INFO apb_subscriber.sv(67) @ 505: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [input] Coverage ------> 84.38%,
 # UVM_INFO apb_subscriber.sv(68) @ 505: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [output] Coverage ------> 25.39%
@@ -155,5 +431,5 @@
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 505 ns  Iteration: 70  Instance: /top
 # Saving coverage database on exit...
-# End time: 21:56:34 on Sep 24,2025, Elapsed time: 0:00:04
-# Errors: 0, Warnings: 5
+# End time: 00:30:07 on Sep 25,2025, Elapsed time: 0:00:04
+# Errors: 5, Warnings: 5

@@ -153,7 +153,29 @@ class no_transfer_test extends base_test;
 
 endclass
 
-//////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+//slave error test
+class slave_error_test extends base_test;
+
+	`uvm_component_utils(slave_error_test)
+
+	function new(string name = "slave_error_test", uvm_component parent = null);
+		super.new(name, parent);
+	endfunction
+
+	virtual task run_phase(uvm_phase phase);
+		uvm_objection phase_done = phase.get_objection();
+		slave_error seq;
+		phase.raise_objection(this);
+		seq = slave_error::type_id::create("seq");
+		seq.start(apb_env.apb_agent_1.seqr);
+		phase.drop_objection(this);
+		//phase_done.set_drain_time(this,20);
+	endtask
+
+endclass
+
+/////////////////////////////////////////////////////////
 
 //regression test
 class regression_test extends base_test;

@@ -29,7 +29,7 @@ interface apb_assertions(
     		$error("RESET failed");
  	end
 */
-/*
+
 	APB_deassert_PRESETn: assert property(@(posedge PCLK) ##2 PRESETn) 
 		     else 
 			$info("reset is applied");
@@ -80,7 +80,7 @@ interface apb_assertions(
 
 	property p4;
 		@(posedge PCLK) disable iff(!PRESETn)
-		(READ_WRITE && transfer) ##1 !($isunknown(apb_read_data_out));
+		(READ_WRITE && transfer) |=> ##1 ($stable(apb_read_data_out));
 	endproperty
 
 	data_out_check:
@@ -88,5 +88,5 @@ interface apb_assertions(
 		$info("Data out is not unknown - Assertion 4 passed");
 	else
 		$error("Assertion 4 failed - data out is unknown during read operation");
-*/	
+	
 endinterface

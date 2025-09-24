@@ -73,7 +73,7 @@ bind vif apb_assertions ASSERT(
     //  run_test("wr_seq_slave2_test");
     //  run_test("mid_break_transfer_test");
     //  run_test("no_transfer_test");
-     
+		//  run_test("slave_error_test"); 
 		#100 $finish;
 
   end
