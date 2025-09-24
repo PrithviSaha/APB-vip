@@ -22,9 +22,10 @@ class apb_output_monitor extends uvm_monitor;
       `uvm_fatal("NO_VIF",{"virtual interface must be set for: ",get_full_name(),".vif"});
   endfunction
   
-  task monitor();
-     seq_item.apb_read_data_out = vif.mon_cb.apb_read_data_out;
-     seq_item.PSLVERR = vif.mon_cb.PSLVERR;
+  task monitor(); 
+    repeat(1) @(posedge vif.mon_cb);
+    seq_item.apb_read_data_out = vif.mon_cb.apb_read_data_out;
+    seq_item.PSLVERR = vif.mon_cb.PSLVERR;
     item_collected_out_port.write(seq_item);
     repeat(2) @(posedge vif.mon_cb);
   endtask
