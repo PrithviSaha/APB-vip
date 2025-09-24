@@ -68,9 +68,13 @@ bind vif apb_assertions ASSERT(
 
   initial begin
 
-    run_test("regression_test");
-
-      #100 $finish;
+        run_test("regression_test");
+    //  run_test("wr_seq_slave1_test");
+    //  run_test("wr_seq_slave2_test");
+    //  run_test("mid_break_transfer_test");
+    //  run_test("no_transfer_test");
+     
+		#100 $finish;
 
   end
 endmodule
