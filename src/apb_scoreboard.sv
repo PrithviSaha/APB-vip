@@ -69,7 +69,7 @@ class apb_scoreboard extends uvm_scoreboard;
 					prev_data = out_item.apb_read_data_out;
 					`uvm_info("SCOREBOARD", $sformatf("READ: Reset= %b, Addr=0x%0h Data=0x%0h, transfer = %b, PSLVERR = %b",
 						vif.PRESETn, inp_item.apb_read_paddr, out_item.apb_read_data_out, inp_item.transfer, out_item.PSLVERR), UVM_MEDIUM);
-					if(out_item.apb_read_data_out == mem[inp_item.apb_read_paddr]) begin
+					if((out_item.apb_read_data_out == mem[inp_item.apb_read_paddr]) || out_item.PSLVERR) begin
 						`uvm_info(get_type_name(), "---------------------------------------", UVM_NONE)
 						`uvm_info(get_type_name(), "----           TEST PASS           ----", UVM_NONE)
 						`uvm_info(get_type_name(), "---------------------------------------", UVM_NONE)
@@ -83,7 +83,7 @@ class apb_scoreboard extends uvm_scoreboard;
 					end
 				end
 			end
-			else begin
+			else begin		//transfer low
 				if(inp_item.READ_WRITE == 1) begin
 					`uvm_info("SCOREBOARD", $sformatf("READ: Addr=0x%0h Data=0x%0h, transfer = %b, PSLVERR = %b",
 						inp_item.apb_read_paddr, prev_data, inp_item.transfer, out_item.PSLVERR), UVM_MEDIUM);

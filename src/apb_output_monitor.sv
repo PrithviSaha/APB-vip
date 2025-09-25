@@ -23,11 +23,25 @@ class apb_output_monitor extends uvm_monitor;
   endfunction
   
   task monitor(); 
+    bit prev_sel_bit;
     repeat(1) @(posedge vif.mon_cb);
+/*
+    if(vif.mon_cb.apb_write_paddr[8] == ~prev_sel_bit) begin
+      repeat(1) @(posedge vif.mon_cb);
+    end
+*/
     seq_item.apb_read_data_out = vif.mon_cb.apb_read_data_out;
     seq_item.PSLVERR = vif.mon_cb.PSLVERR;
+
+/*
+    if(vif.mon_cb.apb_write_paddr[8] == ~prev_sel_bit) begin
+      repeat(1) @(posedge vif.mon_cb);
+    end
+*/
+    prev_sel_bit = vif.mon_cb.apb_write_paddr[8]; 
+
     item_collected_out_port.write(seq_item);
-    repeat(3) @(posedge vif.mon_cb);
+    repeat(2) @(posedge vif.mon_cb);
   endtask
   
   task run_phase(uvm_phase phase);

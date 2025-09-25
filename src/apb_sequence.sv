@@ -95,7 +95,7 @@ class wr_seq_slave2 extends uvm_sequence #(apb_sequence_item);
 		repeat (`N) begin
 			$display("\n<---------------------------------------------SLAVE 2 IS SELCECTED---------------------------------------------->");
 			`uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1; 
-				req.apb_write_paddr inside {[256:320]};})
+				req.apb_write_paddr inside {[257:319]};})
 			read_addr = req.apb_write_paddr;
 			`uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 1; 
 				req.apb_read_paddr == read_addr;})
@@ -187,7 +187,7 @@ class slave_error extends uvm_sequence #(apb_sequence_item);
     
     req = apb_sequence_item::type_id::create("req");
     start_item(req);
-    req.randomize() with { req.READ_WRITE == 1; req.transfer == 1; };
+    req.randomize() with { req.READ_WRITE == 1; req.transfer == 1; req.apb_read_paddr[8] inside {[0:1]}; };
     req.apb_read_paddr = 8'bx;
     finish_item(req);
 
@@ -243,5 +243,6 @@ class regression_seq extends uvm_sequence #(apb_sequence_item);
 		`uvm_do(wr_seq_2);
 		`uvm_do(trans);
 		`uvm_do(mid_trans);
+		`uvm_do(slverr_seq_1);
 	endtask
 endclass

@@ -25,14 +25,31 @@ class apb_input_monitor extends uvm_monitor;
     seq_item=apb_sequence_item ::type_id::create("seq_item",this);    
     //capturing the signals
     repeat(1) @(posedge vif.mon_cb);
+
+/*
+    if(vif.mon_cb.apb_write_paddr[8] == ~prev_sel_bit) begin
+      repeat(1) @(posedge vif.mon_cb);
+    end
+*/
+/*
+      if(vif.mon_cb.apb_write_paddr === 8'bx || vif.mon_cb.apb_read_paddr === 8'bx) begin
+	repeat(1) @(posedge vif.mon_cb);
+      end
+*/
     seq_item.transfer = vif.mon_cb.transfer;
     seq_item.apb_write_paddr=vif.mon_cb.apb_write_paddr;    
     seq_item.apb_read_paddr=vif.mon_cb.apb_read_paddr; 
     seq_item.apb_write_data=vif.mon_cb.apb_write_data;
     seq_item.READ_WRITE = vif.mon_cb.READ_WRITE;
     //$display("INP MON: READ_WRITE = %0b", seq_item.READ_WRITE);
+/*
+    if(seq_item.apb_write_paddr[8] == ~prev_sel_bit) begin
+      repeat(1) @(posedge vif.mon_cb);
+    end
+*/
+
     item_collected_in_port.write(seq_item);
-    repeat(3) @(posedge vif.mon_cb);
+    repeat(2) @(posedge vif.mon_cb);
   endtask
   
   task run_phase(uvm_phase phase);
