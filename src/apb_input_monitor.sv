@@ -32,7 +32,7 @@ class apb_input_monitor extends uvm_monitor;
     seq_item.READ_WRITE = vif.mon_cb.READ_WRITE;
     //$display("INP MON: READ_WRITE = %0b", seq_item.READ_WRITE);
     item_collected_in_port.write(seq_item);
-    repeat(2) @(posedge vif.mon_cb);
+    repeat(3) @(posedge vif.mon_cb);
   endtask
   
   task run_phase(uvm_phase phase);

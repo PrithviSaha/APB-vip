@@ -23,7 +23,7 @@ module top;
 
   initial begin
     PRESETn = 0;
-    repeat(9) @(posedge PCLK);
+    repeat(2) @(posedge PCLK);
     PRESETn = 1;
   end
 
@@ -67,14 +67,14 @@ bind vif apb_assertions ASSERT(
   end
 
   initial begin
-
-        run_test("regression_test");
-    //  run_test("wr_seq_slave1_test");
-    //  run_test("wr_seq_slave2_test");
-    //  run_test("mid_break_transfer_test");
-    //  run_test("no_transfer_test");
-		//  run_test("slave_error_test"); 
-		#100 $finish;
+    //repeat(6) @(posedge PCLK);
+    run_test("regression_test");
+//    run_test("wr_seq_slave1_test");
+//    run_test("wr_seq_slave2_test");
+//    run_test("mid_break_transfer_test");
+//    run_test("no_transfer_test");
+ //   run_test("slave_error_test"); 
+    #100 $finish;
 
   end
 endmodule

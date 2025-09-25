@@ -61,14 +61,14 @@ class apb_scoreboard extends uvm_scoreboard;
 			if(inp_item.transfer) begin
 				if(inp_item.READ_WRITE == 0) begin
 					mem[inp_item.apb_write_paddr] = inp_item.apb_write_data;
-					//      $display("mem stored = 0x%0h at 0x%0h", mem[inp_item.apb_write_paddr], inp_item.apb_write_paddr);
-					`uvm_info("SCOREBOARD", $sformatf("WRITE: Reset=%b, Addr=0x%0h, Data=0x%0h, transfer = %b",
-						vif.PRESETn ,inp_item.apb_write_paddr, inp_item.apb_write_data, inp_item.transfer), UVM_MEDIUM); 
+					      $display("mem stored = 0x%0h at 0x%0h", mem[inp_item.apb_write_paddr], inp_item.apb_write_paddr);
+					`uvm_info("SCOREBOARD", $sformatf("WRITE: Reset=%b, Addr=0x%0h, Data=0x%0h, transfer = %b, PSLVERR = %b",
+						vif.PRESETn ,inp_item.apb_write_paddr, inp_item.apb_write_data, inp_item.transfer, out_item.PSLVERR), UVM_MEDIUM); 
 				end
 				else begin
 					prev_data = out_item.apb_read_data_out;
-					`uvm_info("SCOREBOARD", $sformatf("READ: Reset= %b, Addr=0x%0h Data=0x%0h, transfer = %b",
-						vif.PRESETn, inp_item.apb_read_paddr, out_item.apb_read_data_out, inp_item.transfer), UVM_MEDIUM);
+					`uvm_info("SCOREBOARD", $sformatf("READ: Reset= %b, Addr=0x%0h Data=0x%0h, transfer = %b, PSLVERR = %b",
+						vif.PRESETn, inp_item.apb_read_paddr, out_item.apb_read_data_out, inp_item.transfer, out_item.PSLVERR), UVM_MEDIUM);
 					if(out_item.apb_read_data_out == mem[inp_item.apb_read_paddr]) begin
 						`uvm_info(get_type_name(), "---------------------------------------", UVM_NONE)
 						`uvm_info(get_type_name(), "----           TEST PASS           ----", UVM_NONE)
@@ -85,8 +85,8 @@ class apb_scoreboard extends uvm_scoreboard;
 			end
 			else begin
 				if(inp_item.READ_WRITE == 1) begin
-					`uvm_info("SCOREBOARD", $sformatf("READ: Addr=0x%0h Data=0x%0h, transfer = %b",
-						inp_item.apb_read_paddr, prev_data, inp_item.transfer), UVM_MEDIUM);
+					`uvm_info("SCOREBOARD", $sformatf("READ: Addr=0x%0h Data=0x%0h, transfer = %b, PSLVERR = %b",
+						inp_item.apb_read_paddr, prev_data, inp_item.transfer, out_item.PSLVERR), UVM_MEDIUM);
 					if(out_item.apb_read_data_out == prev_data) begin
 						`uvm_info(get_type_name(), "---------------------------------------", UVM_NONE)
 						`uvm_info(get_type_name(), "----           TEST PASS           ----", UVM_NONE)

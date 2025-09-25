@@ -68,7 +68,7 @@ class wr_seq_slave1 extends uvm_sequence #(apb_sequence_item);
 		repeat (`N) begin
 			$display("\n<-------------------------------------------- SLAVE 1 SELECTED ------------------------------------------------->");
 			`uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1; 
-				req.apb_write_paddr inside {[0:255]};})
+				req.apb_write_paddr inside {[0:63]};})
 			read_addr = req.apb_write_paddr;
 			`uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 1; 
 				req.apb_read_paddr == read_addr;})
@@ -95,7 +95,7 @@ class wr_seq_slave2 extends uvm_sequence #(apb_sequence_item);
 		repeat (`N) begin
 			$display("\n<---------------------------------------------SLAVE 2 IS SELCECTED---------------------------------------------->");
 			`uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1; 
-				req.apb_write_paddr inside {[256:511]};})
+				req.apb_write_paddr inside {[256:320]};})
 			read_addr = req.apb_write_paddr;
 			`uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 1; 
 				req.apb_read_paddr == read_addr;})
@@ -171,7 +171,7 @@ endclass
 class slave_error extends uvm_sequence #(apb_sequence_item);
 
   `uvm_object_utils(slave_error)
-  bit [8:0] read_addr;
+//  bit [8:0] read_addr;
 
   function new(string name = "slave_error");
     super.new(name);
@@ -179,14 +179,42 @@ class slave_error extends uvm_sequence #(apb_sequence_item);
 
   virtual task body();
     $display("\n<-----------------------------------------------SLAVE ERROR TEST STARTED------------------------------------------> ");
-      `uvm_do_with(req, { req.READ_WRITE == 0; req.apb_write_data == 8'bx; })
-      `uvm_do_with(req, { req.READ_WRITE == 1; req.apb_read_paddr == 8'bx; })
-      `uvm_do_with(req, { req.READ_WRITE == 0; req.apb_write_paddr == 8'bx; })
+    req = apb_sequence_item::type_id::create("req");
+    start_item(req);
+    req.randomize() with { req.READ_WRITE == 0; req.transfer == 1; };
+    req.apb_write_data = 8'bx;
+    finish_item(req);
+    
+    req = apb_sequence_item::type_id::create("req");
+    start_item(req);
+    req.randomize() with { req.READ_WRITE == 1; req.transfer == 1; };
+    req.apb_read_paddr = 8'bx;
+    finish_item(req);
+
+    req = apb_sequence_item::type_id::create("req");
+    start_item(req);
+    req.randomize() with { req.READ_WRITE == 0; req.transfer == 1; };
+    req.apb_write_paddr = 8'bx;
+    finish_item(req);
     $display("<-------------------------------------------------SLAVE ERROR TEST ENDED-------------------------------------------->");
 
   endtask
 endclass
 
+/////////////////////////////////////////////////////////////////
+
+class rst_seq extends uvm_sequence #(apb_sequence_item);
+	`uvm_object_utils(rst_seq);
+
+	function new(string name = "regression_seq");
+		super.new(name);
+	endfunction
+
+	virtual task body();
+		`uvm_do(req);
+	endtask
+	
+endclass
 
 /////////////////////////////////////////////////////////////////
 //regression sequence
@@ -196,10 +224,13 @@ class regression_seq extends uvm_sequence #(apb_sequence_item);
 
 	//   write_seq 		write_seq_1;
 	//   read_seq 		read_seq_1;
-	wr_seq_slave1	wr_seq_1;
-	wr_seq_slave2 wr_seq_2;
+	rst_seq 	   rst_seq_1;
+	slave_error 	   slverr_seq_1;
+	wr_seq_slave1	   wr_seq_1;
+	wr_seq_slave2 	   wr_seq_2;
 	mid_break_transfer mid_trans;
-	no_transfer trans;
+	no_transfer 	   trans;
+
 	function new(string name = "regression_seq");
 		super.new(name);
 	endfunction
@@ -207,6 +238,7 @@ class regression_seq extends uvm_sequence #(apb_sequence_item);
 	task body();
 		//    `uvm_do(write_seq_1);
 		//    `uvm_do(read_seq_1);
+		`uvm_do(slverr_seq_1);
 		`uvm_do(wr_seq_1);
 		`uvm_do(wr_seq_2);
 		`uvm_do(trans);
