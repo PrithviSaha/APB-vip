@@ -59,7 +59,7 @@ class wr_seq_slave1 extends uvm_sequence #(apb_sequence_item);
 	`uvm_object_utils(wr_seq_slave1)
 
 	bit [8:0] read_addr;
-	//logic t;
+	
 	function new(string name = "wr_seq_slave1");
 		super.new(name);
 	endfunction
@@ -69,12 +69,9 @@ class wr_seq_slave1 extends uvm_sequence #(apb_sequence_item);
 			$display("\n<-------------------------------------------- SLAVE 1 SELECTED ------------------------------------------------->");
 			`uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1; 
 				req.apb_write_paddr inside {[0:255]};})
-			//req.apb_write_paddr.rand_mode(0);
 			read_addr = req.apb_write_paddr;
-			//t = req.transfer;
 			`uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 1; 
 				req.apb_read_paddr == read_addr;})
-			//req.apb_write_paddr.rand_mode(1);
 		end
 	endtask
 endclass
@@ -99,12 +96,9 @@ class wr_seq_slave2 extends uvm_sequence #(apb_sequence_item);
 			$display("\n<---------------------------------------------SLAVE 2 IS SELCECTED---------------------------------------------->");
 			`uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1; 
 				req.apb_write_paddr inside {[256:511]};})
-			//req.apb_write_paddr.rand_mode(0);
 			read_addr = req.apb_write_paddr;
-			//t = req.transfer;
 			`uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 1; 
 				req.apb_read_paddr == read_addr;})
-			//req.apb_write_paddr.rand_mode(1);
 		end
 	endtask
 endclass
@@ -112,6 +106,7 @@ endclass
 
 /////////////////////////////////////////////////////////////////
 //mid break transfer
+
 class mid_break_transfer extends uvm_sequence #(apb_sequence_item);
 
 	`uvm_object_utils(mid_break_transfer)
@@ -123,35 +118,26 @@ class mid_break_transfer extends uvm_sequence #(apb_sequence_item);
 	endfunction
 
 	virtual task body();
-		// repeat (`N) begin
 		$display("\n<-------------------------------------------------MID TRANSFER STARTED-------------------------------------------->");
 		`uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1; 
 			req.apb_write_paddr inside {[0:10]};})
-		//req.apb_write_paddr.rand_mode(0);
 		read_addr = req.apb_write_paddr;
-		//t = req.transfer;
 		`uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 1; 
 			req.apb_read_paddr == read_addr;})
 
 		`uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 0; 
 			req.apb_write_paddr == 1;})
-		//req.apb_write_paddr.rand_mode(0);
 		read_addr = req.apb_write_paddr;
-		//t = req.transfer;
 		`uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 0; 
 			req.apb_read_paddr == read_addr;})
 
 
 		`uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1; 
 			req.apb_write_paddr inside {[0:10]};})
-		//req.apb_write_paddr.rand_mode(0);
 		read_addr = req.apb_write_paddr;
-		//t = req.transfer;
 		`uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 1; 
 			req.apb_read_paddr == read_addr;})
 		$display("<----------------------------------------------------MID TRANSFER ENDED--------------------------------------------->");
-		//req.apb_write_paddr.rand_mode(1);
-		//end
 	endtask
 endclass
 
@@ -169,18 +155,13 @@ class no_transfer extends uvm_sequence #(apb_sequence_item);
 	endfunction
 
 	virtual task body();
-		//repeat (`N) begin
 		$display("\n<--------------------------------------------------TRANSFER = 0 STARTED-------------------------------------------> ");
 		`uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 0; 
 			req.apb_write_paddr inside {[0:511]};})
-		//req.apb_write_paddr.rand_mode(0);
 		read_addr = req.apb_write_paddr;
-		//t = req.transfer;
 		`uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 0; 
 			req.apb_read_paddr == read_addr;})
 		$display("<--------------------------------------------------TRANSFER = 0 ENDED--------------------------------------------->");
-		//req.apb_write_paddr.rand_mode(1);
-		//end
 	endtask
 endclass
 
@@ -189,27 +170,21 @@ endclass
 
 class slave_error extends uvm_sequence #(apb_sequence_item);
 
-	`uvm_object_utils(slave_error)
-   bit [8:0] read_addr;
-	function new(string name = "slave_error");
-		super.new(name);
-	endfunction
+  `uvm_object_utils(slave_error)
+  bit [8:0] read_addr;
 
-	virtual task body();
-		//repeat (`N) begin
-		$display("\n<-----------------------------------------------SLAVE ERROR TEST STARTED------------------------------------------> ");
-		
-	/*	`uvm_do_with(req, {req.READ_WRITE == 0; req.transfer == 1; 
-			 req.apb_write_paddr inside {[0:511]};})
-		//req.apb_write_paddr.rand_mode(0);
-		   read_addr = req.apb_write_paddr;
-		//t = req.transfer;
-		`uvm_do_with(req, {req.READ_WRITE == 1; req.transfer == 1; 
-			req.apb_read_paddr == read_addr;})	
-	*/	$display("<-------------------------------------------------SLAVE ERROR TEST ENDED-------------------------------------------->");
-		//req.apb_write_paddr.rand_mode(1);
-		//end
-	endtask
+  function new(string name = "slave_error");
+    super.new(name);
+  endfunction
+
+  virtual task body();
+    $display("\n<-----------------------------------------------SLAVE ERROR TEST STARTED------------------------------------------> ");
+      `uvm_do_with(req, { req.READ_WRITE == 0; req.apb_write_data == 8'bx; })
+      `uvm_do_with(req, { req.READ_WRITE == 1; req.apb_read_paddr == 8'bx; })
+      `uvm_do_with(req, { req.READ_WRITE == 0; req.apb_write_paddr == 8'bx; })
+    $display("<-------------------------------------------------SLAVE ERROR TEST ENDED-------------------------------------------->");
+
+  endtask
 endclass
 
 
