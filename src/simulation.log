@@ -1,5 +1,5 @@
 # vsim -vopt work.top -voptargs="+acc=npr" -assertdebug -l simulation.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; run -all; exit" 
-# Start time: 09:58:29 on Sep 25,2025
+# Start time: 11:43:02 on Sep 25,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vopt-143) Recognized 1 FSM in module "master_bridge(fast)".
 # ** Warning: apb_top.sv(49): (vopt-2685) [TFMPC] - Too few port connections for 'ASSERT'.  Expected 9, found 8.
@@ -95,65 +95,82 @@
 # 
 # 
 # <-------------------------------------------- SLAVE 1 SELECTED ------------------------------------------------->
-# UVM_INFO apb_scoreboard.sv(41) @ 45: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x91 Data=0x14, transfer = 1
-# UVM_INFO apb_scoreboard.sv(46) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x91 Data=0xx, transfer = 1
+# UVM_INFO apb_scoreboard.sv(45) @ 45: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] RESET : reset = 0 , Data=0xx, PSLVERR = x
+# UVM_INFO apb_scoreboard.sv(54) @ 45: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(55) @ 45: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
+# UVM_INFO apb_scoreboard.sv(56) @ 45: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(45) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] RESET : reset = 0 , Data=0xx, PSLVERR = x
 # UVM_INFO apb_scoreboard.sv(54) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # UVM_INFO apb_scoreboard.sv(55) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
 # UVM_INFO apb_scoreboard.sv(56) @ 75: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # 
 # <-------------------------------------------- SLAVE 1 SELECTED ------------------------------------------------->
-# UVM_INFO apb_scoreboard.sv(41) @ 105: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0xdd Data=0xe9, transfer = 1
-# UVM_INFO apb_scoreboard.sv(46) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0xdd Data=0xx, transfer = 1
-# UVM_INFO apb_scoreboard.sv(54) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
-# UVM_INFO apb_scoreboard.sv(55) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
-# UVM_INFO apb_scoreboard.sv(56) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(66) @ 105: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Reset=1, Addr=0xdd, Data=0xe9, transfer = 1
+# UVM_INFO apb_scoreboard.sv(71) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Reset= 1, Addr=0xdd Data=0xx, transfer = 1
+# UVM_INFO apb_scoreboard.sv(79) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(80) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
+# UVM_INFO apb_scoreboard.sv(81) @ 135: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# 
+# <-------------------------------------------- SLAVE 1 SELECTED ------------------------------------------------->
+# UVM_INFO apb_scoreboard.sv(66) @ 165: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Reset=1, Addr=0xc3, Data=0x9, transfer = 1
+# UVM_INFO apb_scoreboard.sv(71) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Reset= 1, Addr=0xc3 Data=0xx, transfer = 1
+# UVM_INFO apb_scoreboard.sv(79) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(80) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
+# UVM_INFO apb_scoreboard.sv(81) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # 
 # <---------------------------------------------SLAVE 2 IS SELCECTED---------------------------------------------->
-# UVM_INFO apb_scoreboard.sv(41) @ 165: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x181 Data=0xb3, transfer = 1
-# UVM_INFO apb_scoreboard.sv(46) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x181 Data=0xx, transfer = 1
-# UVM_INFO apb_scoreboard.sv(54) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
-# UVM_INFO apb_scoreboard.sv(55) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
-# UVM_INFO apb_scoreboard.sv(56) @ 195: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(66) @ 225: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Reset=1, Addr=0x181, Data=0xb3, transfer = 1
+# UVM_INFO apb_scoreboard.sv(71) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Reset= 1, Addr=0x181 Data=0xx, transfer = 1
+# UVM_INFO apb_scoreboard.sv(79) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(80) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
+# UVM_INFO apb_scoreboard.sv(81) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # 
 # <---------------------------------------------SLAVE 2 IS SELCECTED---------------------------------------------->
-# UVM_INFO apb_scoreboard.sv(41) @ 225: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x1e8 Data=0x56, transfer = 1
-# UVM_INFO apb_scoreboard.sv(46) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1e8 Data=0xx, transfer = 1
-# UVM_INFO apb_scoreboard.sv(54) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
-# UVM_INFO apb_scoreboard.sv(55) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
-# UVM_INFO apb_scoreboard.sv(56) @ 255: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(66) @ 285: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Reset=1, Addr=0x1e8, Data=0x56, transfer = 1
+# UVM_INFO apb_scoreboard.sv(71) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Reset= 1, Addr=0x1e8 Data=0xx, transfer = 1
+# UVM_INFO apb_scoreboard.sv(79) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(80) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
+# UVM_INFO apb_scoreboard.sv(81) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# 
+# <---------------------------------------------SLAVE 2 IS SELCECTED---------------------------------------------->
+# UVM_INFO apb_scoreboard.sv(66) @ 345: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Reset=1, Addr=0x1ed, Data=0xc1, transfer = 1
+# UVM_INFO apb_scoreboard.sv(71) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Reset= 1, Addr=0x1ed Data=0xx, transfer = 1
+# UVM_INFO apb_scoreboard.sv(79) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(80) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
+# UVM_INFO apb_scoreboard.sv(81) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # 
 # <--------------------------------------------------TRANSFER = 0 STARTED-------------------------------------------> 
-# UVM_INFO apb_scoreboard.sv(64) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1c9 Data=0xx, transfer = 0
-# UVM_INFO apb_scoreboard.sv(72) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
-# UVM_INFO apb_scoreboard.sv(73) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
-# UVM_INFO apb_scoreboard.sv(74) @ 315: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(89) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1c9 Data=0xx, transfer = 0
+# UVM_INFO apb_scoreboard.sv(97) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(98) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST FAIL           ----
+# UVM_INFO apb_scoreboard.sv(99) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # <--------------------------------------------------TRANSFER = 0 ENDED--------------------------------------------->
 # 
 # <-------------------------------------------------MID TRANSFER STARTED-------------------------------------------->
-# UVM_INFO apb_scoreboard.sv(41) @ 345: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x4 Data=0xb0, transfer = 1
-# UVM_INFO apb_scoreboard.sv(46) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x4 Data=0xb0, transfer = 1
-# UVM_INFO apb_scoreboard.sv(48) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
-# UVM_INFO apb_scoreboard.sv(49) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
-# UVM_INFO apb_scoreboard.sv(50) @ 375: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
-# UVM_INFO apb_scoreboard.sv(64) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1 Data=0xb0, transfer = 0
-# UVM_INFO apb_scoreboard.sv(66) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
-# UVM_INFO apb_scoreboard.sv(67) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
-# UVM_INFO apb_scoreboard.sv(68) @ 435: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
-# UVM_INFO apb_scoreboard.sv(41) @ 465: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Addr=0x5 Data=0x31, transfer = 1
-# UVM_INFO apb_scoreboard.sv(46) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x5 Data=0x31, transfer = 1
-# UVM_INFO apb_scoreboard.sv(48) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
-# UVM_INFO apb_scoreboard.sv(49) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
-# UVM_INFO apb_scoreboard.sv(50) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(66) @ 465: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Reset=1, Addr=0x4, Data=0xb0, transfer = 1
+# UVM_INFO apb_scoreboard.sv(71) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Reset= 1, Addr=0x4 Data=0xb0, transfer = 1
+# UVM_INFO apb_scoreboard.sv(73) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(74) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(75) @ 495: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(89) @ 555: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Addr=0x1 Data=0xb0, transfer = 0
+# UVM_INFO apb_scoreboard.sv(91) @ 555: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(92) @ 555: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(93) @ 555: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(66) @ 585: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] WRITE: Reset=1, Addr=0x5, Data=0x31, transfer = 1
+# UVM_INFO apb_scoreboard.sv(71) @ 615: uvm_test_top.apb_env.apb_scoreboard_1 [SCOREBOARD] READ: Reset= 1, Addr=0x5 Data=0x31, transfer = 1
+# UVM_INFO apb_scoreboard.sv(73) @ 615: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
+# UVM_INFO apb_scoreboard.sv(74) @ 615: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ----           TEST PASS           ----
+# UVM_INFO apb_scoreboard.sv(75) @ 615: uvm_test_top.apb_env.apb_scoreboard_1 [apb_scoreboard] ---------------------------------------
 # <----------------------------------------------------MID TRANSFER ENDED--------------------------------------------->
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 505: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# UVM_INFO apb_subscriber.sv(67) @ 505: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [input] Coverage ------> 84.38%,
-# UVM_INFO apb_subscriber.sv(68) @ 505: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [output] Coverage ------> 25.39%
-# Passes = 3 | Fails = 5
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 625: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO apb_subscriber.sv(67) @ 625: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [input] Coverage ------> 84.57%,
+# UVM_INFO apb_subscriber.sv(68) @ 625: uvm_test_top.apb_env.apb_coverage_1 [apb_coverage] [output] Coverage ------> 25.39%
+# Passes = 3 | Fails = 8
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   46
+# UVM_INFO :   59
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
@@ -161,13 +178,13 @@
 # [ENV]     1
 # [Questa UVM]     2
 # [RNTST]     1
-# [SCOREBOARD]    14
+# [SCOREBOARD]    18
 # [TEST_DONE]     1
 # [UVMTOP]     1
 # [apb_coverage]     2
-# [apb_scoreboard]    24
+# [apb_scoreboard]    33
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 505 ns  Iteration: 70  Instance: /top
+#    Time: 625 ns  Iteration: 70  Instance: /top
 # Saving coverage database on exit...
-# End time: 09:58:33 on Sep 25,2025, Elapsed time: 0:00:04
+# End time: 11:43:06 on Sep 25,2025, Elapsed time: 0:00:04
 # Errors: 0, Warnings: 5

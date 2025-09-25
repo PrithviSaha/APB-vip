@@ -23,7 +23,7 @@ module top;
 
   initial begin
     PRESETn = 0;
-    repeat(2) @(posedge PCLK);
+    repeat(9) @(posedge PCLK);
     PRESETn = 1;
   end
 
@@ -68,7 +68,7 @@ bind vif apb_assertions ASSERT(
 
   initial begin
 
-      run_test("regression_test");
+        run_test("regression_test");
     //  run_test("wr_seq_slave1_test");
     //  run_test("wr_seq_slave2_test");
     //  run_test("mid_break_transfer_test");
